@@ -49,7 +49,11 @@ public class PigeonPhysics : MonoBehaviour
     private float bankRotationSpeed      = 3f;   //"Bank Rotation Speed", "Rotation speed along the Z axis when yaw is applied. Higher values will result in snappier banking."
     [SerializeField]
     private float bankRotationMultiplier = 1f;   //"Bank Rotation Multiplier", "Bank amount along the Z axis when yaw is applied."
+    [SerializeField]
+    private float changeHeightSpeed = 5000f;
 
+    [SerializeField] bool movingUp = false, movingDown = false;
+    [SerializeField] float m_topHeight, m_bottomHeight;
 
     private GameObject aircraftObject;
     private new Rigidbody rigidbody;
@@ -94,6 +98,7 @@ public class PigeonPhysics : MonoBehaviour
     private void FixedUpdate()
     {
         UpdateForces();
+        UpdateHeight();
     }
 
 
@@ -132,8 +137,6 @@ public class PigeonPhysics : MonoBehaviour
       //var roll  = rollValue * -rollSpeedModifier;
       //var pitch = pitchValue * pitchYawModifier;
 
-       
-
         Yaw = yawValue * pitchYawModifier;
         CurrentMagnitude = rigidbody.velocity.magnitude;
 
@@ -167,11 +170,43 @@ public class PigeonPhysics : MonoBehaviour
         //CurrentMagnitude -= transform.forward.y * gravitationalModifier;
         //rigidbody.AddRelativeTorque(Vector3.right * currentGravityScale * Time.fixedDeltaTime);
 
-        //rigidbody.velocity = transform.forward * CurrentMagnitude;
+        rigidbody.velocity = transform.forward * CurrentMagnitude;
 
         
         //UpdateBanking();
     }
+
+
+
+    private void UpdateHeight()
+    {
+        if(movingUp)
+        {
+            if(transform.position.y < m_topHeight)
+            {
+                rigidbody.AddForce(Vector3.up * changeHeightSpeed * Time.fixedDeltaTime, ForceMode.VelocityChange);
+            }
+            else
+            {
+                movingUp = false;
+                rigidbody.velocity = new Vector3(rigidbody.velocity.x, 0, rigidbody.velocity.z);
+            }
+        }
+        if(movingDown)
+        {
+            if(transform.position.y > m_bottomHeight)
+            {
+                rigidbody.AddForce(Vector3.down * changeHeightSpeed * Time.fixedDeltaTime, ForceMode.VelocityChange);
+            }
+            else
+            {
+                movingDown = false;
+                rigidbody.velocity = new Vector3(rigidbody.velocity.x, 0, rigidbody.velocity.z);
+            }
+        }
+    }
+
+
 
 
     void UpdateBanking()
@@ -209,5 +244,28 @@ public class PigeonPhysics : MonoBehaviour
     public void RollData(float value)
     {
         rollValue = value;
+    }
+
+    public void ChangeHeight(float value)
+    {
+        if(value > 0)
+        {
+
+
+            Debug.Log("Moving down");
+            movingUp = false;
+            movingDown = true;
+
+        }
+        else if(value < 0)
+        {
+            Debug.Log("Moving up");
+            movingUp = true;
+            movingDown = false;
+        }
+        else
+        {
+
+        }
     }
 }
