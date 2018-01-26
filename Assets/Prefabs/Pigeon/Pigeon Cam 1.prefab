@@ -37,13 +37,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1110821690414650}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 34.17, z: -342}
+  m_LocalRotation: {x: 0.28736055, y: 0, z: 0, w: 0.95782256}
+  m_LocalPosition: {x: 0, y: 289.38, z: -342}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 33.4, y: 0, z: 0}
 --- !u!20 &20410713187343312
 Camera:
   m_ObjectHideFlags: 1
@@ -107,9 +107,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   aircraftPhysics: {fileID: 0}
-  followDistance: 113.62
-  cameraElevation: 15.4
-  followTightness: 4.01
+  followDistance: 150
+  cameraElevation: 75
+  followTightness: 5
   rotationTightness: 10
   afterburnShakeAmount: 2
   yawMultiplier: 0.005

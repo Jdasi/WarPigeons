@@ -43,16 +43,7 @@ public class PigeonManager : MonoBehaviour
         switch(gameAction)
         {
             case GameAction.LS_X_Axis:
-                pigeonPhysics.RollData(value);
-                break;
-            case GameAction.LS_Y_Axis:
-                pigeonPhysics.PitchData(value);
-                break;
-            case GameAction.RS_X_Axis:
-                break;
-            case GameAction.RS_Y_Axis:
-                break;
-            case GameAction.LT_Axis:
+                pigeonPhysics.YawData(value);
                 break;
             case GameAction.RT_Axis:
                 pigeonPhysics.ThrustData(-value);
@@ -60,24 +51,9 @@ public class PigeonManager : MonoBehaviour
             case GameAction.LB_Down:
                 break;
             case GameAction.LB_Held:
-                pigeonPhysics.YawData(value);
-                break;
-            case GameAction.RB_Down:
                 break;
             case GameAction.RB_Held:
-                pigeonPhysics.YawData(value);
-                break;
-            case GameAction.A_Down:
-                break;
-            case GameAction.A_Held:
-                break;
-            case GameAction.B_Down:
-                break;
-            case GameAction.B_Held:
-                break;
-            case GameAction.None:
-                break;
-            default:
+                
                 break;
         }
     }

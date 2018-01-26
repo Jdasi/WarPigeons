@@ -129,9 +129,11 @@ public class PigeonPhysics : MonoBehaviour
     /// </summary>
     private void UpdateForces()
     {
-        var roll  = rollValue * -rollSpeedModifier;
-        var pitch = pitchValue * pitchYawModifier;
-        
+      //var roll  = rollValue * -rollSpeedModifier;
+      //var pitch = pitchValue * pitchYawModifier;
+
+       
+
         Yaw = yawValue * pitchYawModifier;
         CurrentMagnitude = rigidbody.velocity.magnitude;
 
@@ -155,19 +157,20 @@ public class PigeonPhysics : MonoBehaviour
             CurrentMagnitude = Mathf.Lerp(CurrentMagnitude, currentSpeed, thrustTransitionSpeed * Time.fixedDeltaTime);
         }
 
+
         rigidbody.AddRelativeTorque(
-            (pitch * currentTurnSpeed * Time.fixedDeltaTime),
-            (Yaw   * currentTurnSpeed * Time.fixedDeltaTime),
-            (roll  * currentTurnSpeed * (rollSpeedModifier / 2f) * Time.fixedDeltaTime));
+            (0),
+            (Yaw   * currentTurnSpeed      * Time.fixedDeltaTime),
+            (0));
 
 
-        CurrentMagnitude -= transform.forward.y * gravitationalModifier;
-        rigidbody.AddRelativeTorque(Vector3.right * currentGravityScale * Time.fixedDeltaTime);
+        //CurrentMagnitude -= transform.forward.y * gravitationalModifier;
+        //rigidbody.AddRelativeTorque(Vector3.right * currentGravityScale * Time.fixedDeltaTime);
 
-        rigidbody.velocity = transform.forward * CurrentMagnitude;
+        //rigidbody.velocity = transform.forward * CurrentMagnitude;
 
         
-        UpdateBanking();
+        //UpdateBanking();
     }
 
 
