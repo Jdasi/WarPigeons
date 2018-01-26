@@ -48,12 +48,8 @@ public class PigeonManager : MonoBehaviour
             case GameAction.RT_Axis:
                 pigeonPhysics.ThrustData(-value);
                 break;
-            case GameAction.LB_Down:
-                break;
-            case GameAction.LB_Held:
-                break;
-            case GameAction.RB_Held:
-                
+            case GameAction.LS_Y_Axis:
+                pigeonPhysics.ChangeHeight(value);
                 break;
         }
     }
