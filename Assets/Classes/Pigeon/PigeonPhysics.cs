@@ -8,7 +8,7 @@ using UnityEngine;
 /// <summary>
 /// Data is passed from the AircraftManager but Physics Update is always running. 
 /// </summary>
-public class AircraftPhysics : MonoBehaviour
+public class PigeonPhysics : MonoBehaviour
 {
     //"Core Movement", "Controls for the various speeds for different operations."
     [SerializeField]
