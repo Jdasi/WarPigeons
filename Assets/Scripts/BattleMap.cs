@@ -128,8 +128,8 @@ public class BattleMap : MonoBehaviour {
 			offsetY = 0.0f;
 			if (j > 0) {
 				angle = 6.28319f / (soldierSpawn - 1);
-				offsetX = Mathf.Sin (j * angle) * 0.15f;
-				offsetY = Mathf.Cos (j * angle) * 0.15f;
+				offsetX = Mathf.Sin (j * angle) * 0.075f;
+				offsetY = Mathf.Cos (j * angle) * 0.075f;
 			}
 			GameObject newObject;
 			if (playerOwned [pos]) {

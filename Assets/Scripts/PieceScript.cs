@@ -5,6 +5,7 @@ using UnityEngine;
 public class PieceScript : MonoBehaviour {
 
 	public float lifespan = 3.0f;
+	float fadeTimer = 1.0f;
 	public int id = 0;
 	bool exploding = false;
 
@@ -16,8 +17,14 @@ public class PieceScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (exploding) {
-			lifespan -= Time.deltaTime;
-			if (lifespan <= 0.0f) {
+			foreach(MeshRenderer render in GetComponentsInChildren<MeshRenderer>())
+			{
+				Color temp = render.material.color;
+				temp.a = fadeTimer;
+				render.material.color = temp;
+			}
+			fadeTimer -= Time.deltaTime / lifespan;
+			if (fadeTimer <= 0.0f) {
 				Destroy (this.gameObject);
 			}
 		}
