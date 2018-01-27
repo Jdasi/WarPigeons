@@ -64,7 +64,7 @@ public class Pigeon : MonoBehaviour
 	
 	public void Damage(float amount)
 	{
-		if (health < 0.0f)
+		if (health <= 0.0f)
 			return;
 		health -= amount;
 		damaged = 1.0f;
@@ -298,5 +298,10 @@ public class Pigeon : MonoBehaviour
             transform.Rotate(Vector3.up, horizontal * turn_speed * modifier * Time.deltaTime);
         }
     }
+
+	void OnCollisionEnter(Collision collision)
+	{
+		Damage (100.0f);
+	}
 
 }
