@@ -30,7 +30,7 @@ public class TestSoldier : MonoBehaviour {
         if (curShootTimer > 0)
             return;
 
-        curShootTimer = 0.2f;
+        curShootTimer = 0.4f;
 
         Transform newBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         newBullet.GetComponent<TestBullet>().fireBullet(calculateLead());

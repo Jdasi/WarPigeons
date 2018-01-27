@@ -37,8 +37,8 @@ public class VolumeRenderer : MonoBehaviour
 
     void Update ()
     {     
-          if (Input.GetKey(KeyCode.A))
-            UpdateClouds();
+          //if (Input.GetKey(KeyCode.A))
+          //  UpdateClouds();
 
           UpdateVolumeRenderer();
     }
