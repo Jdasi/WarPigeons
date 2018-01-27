@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class VolumeRenderer : MonoBehaviour
 {
     [SerializeField] Vector3 size;
-    //[SerializeField] private uint octaves = 6;
     [SerializeField] private float scale = 5f;
     [SerializeField] private float frequency = 0.6f;
     [SerializeField] public int seed = 0;
@@ -25,6 +25,7 @@ public class VolumeRenderer : MonoBehaviour
 
         texture = new Texture3D(Mathf.NextPowerOfTwo((int) size.x), Mathf.NextPowerOfTwo((int)size.y),
             Mathf.NextPowerOfTwo((int)size.z), TextureFormat.ARGB32, true);
+
         UpdateClouds();
     }
 
@@ -34,6 +35,7 @@ public class VolumeRenderer : MonoBehaviour
         GenerateClouds();
         UpdateVolumeRenderer();
     }
+
 
     void Update ()
     {     
