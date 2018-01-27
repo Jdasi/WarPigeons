@@ -664,7 +664,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4326179471189270}
-  - component: {fileID: 114478611267478640}
   - component: {fileID: 135863282856291836}
   - component: {fileID: 114952845652413220}
   m_Layer: 10
@@ -1050,7 +1049,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1827738975098956}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+  m_LocalPosition: {x: -316.35464, y: 28.572382, z: -221.71164}
+=======
+  m_LocalPosition: {x: 10.27, y: 1.15, z: 45.91}
+>>>>>>> 5fe8af46d9f916f00c489a87d94c34a8f5955d58
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4622252538938168}
@@ -1483,7 +1486,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 4e7fa4998e66b25478c6b241aa937518, type: 2}
+  - {fileID: 2100000, guid: 288ca52dac22e644380e9490194fed99, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1643,7 +1646,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 288ca52dac22e644380e9490194fed99, type: 2}
+  - {fileID: 2100000, guid: b19e4b222bfdc4d40ab2db53ef6a393a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1739,7 +1742,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 4e7fa4998e66b25478c6b241aa937518, type: 2}
+  - {fileID: 2100000, guid: 288ca52dac22e644380e9490194fed99, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1835,7 +1838,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 288ca52dac22e644380e9490194fed99, type: 2}
+  - {fileID: 2100000, guid: b19e4b222bfdc4d40ab2db53ef6a393a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1867,7 +1870,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 4e7fa4998e66b25478c6b241aa937518, type: 2}
+  - {fileID: 2100000, guid: 288ca52dac22e644380e9490194fed99, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1963,7 +1966,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 4e7fa4998e66b25478c6b241aa937518, type: 2}
+  - {fileID: 2100000, guid: 288ca52dac22e644380e9490194fed99, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2123,7 +2126,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 4e7fa4998e66b25478c6b241aa937518, type: 2}
+  - {fileID: 2100000, guid: 288ca52dac22e644380e9490194fed99, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2411,7 +2414,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 288ca52dac22e644380e9490194fed99, type: 2}
+  - {fileID: 2100000, guid: b19e4b222bfdc4d40ab2db53ef6a393a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2571,7 +2574,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 288ca52dac22e644380e9490194fed99, type: 2}
+  - {fileID: 2100000, guid: b19e4b222bfdc4d40ab2db53ef6a393a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2926,21 +2929,6 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114478611267478640
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1827738975098956}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ed6a681369465748bbdced8f37f8010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 4370657955895174, guid: 3641b8a2bfa83fb43a8e97c27bff18e7,
-    type: 2}
-  shoot_spread: 2
-  stopFollowingRange: 50
 --- !u!114 &114952845652413220
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2955,7 +2943,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4370657955895174, guid: 3641b8a2bfa83fb43a8e97c27bff18e7,
     type: 2}
   shoot_spread: 2
-  stopFollowingRange: 50
+  stopFollowingRange: 40
   crouchIntervalMax: 5
   peekIntervalMax: 2
   team: 2

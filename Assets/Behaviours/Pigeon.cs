@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Rewired;
 
 public class Pigeon : MonoBehaviour
 {
@@ -35,9 +36,13 @@ public class Pigeon : MonoBehaviour
     [Space]
     [SerializeField] GameObject ragdoll_prefab;
 
+    [Space]
+    [SerializeField] float dist_before_vibrate = 200;
+
     [Header("References")]
     [SerializeField] Rigidbody rigid_body;
     [SerializeField] GameObject body;
+    [SerializeField] GameObject letter_obj;
 
     [HideInInspector] public Transform cam_follow_target;
     [HideInInspector] public Transform cam_lookat_target;
@@ -49,6 +54,34 @@ public class Pigeon : MonoBehaviour
     private float horizontal;
 
     private Vector3 last_pos;
+    private PigeonDestination destination;
+	private DamageFlash damage_camera;
+
+	private float health = 100.0f;
+	private float damaged = 0.0f;
+
+	
+	public void Damage(float amount)
+	{
+		if (health < 0.0f)
+			return;
+		health -= amount;
+		damaged = 1.0f;
+		if (health <= 0.0f)
+			Kill ();
+	}
+	
+	
+	public void SetDestination(PigeonDestination _destination)
+    {
+        destination = _destination;
+    }
+
+
+    public void SetLetterEquipped(bool _equipped)
+    {
+        letter_obj.SetActive(_equipped);
+    }
 
 
     public void Kill()
@@ -70,12 +103,17 @@ public class Pigeon : MonoBehaviour
 
         Time.timeScale = 0.75f;
 
+		damage_camera.Death ();
+
         // TODO: Some invoke or something to end the game after a short delay ..
     }
     
 
     void Start()
     {
+		damage_camera = GetComponent<DamageFlash>();
+		damage_camera.UpdateDamage (health);
+
         AudioManager.SetAmbience(AmbienceType.ABOVE);
 
         last_pos = transform.position;
@@ -91,6 +129,18 @@ public class Pigeon : MonoBehaviour
 
     void Update()
     {
+		if (health > 0.0f && health < 100.0f) {
+			if (damaged > 0.0f) {
+				damaged -= Time.deltaTime;
+			} else {
+				health += Time.deltaTime * 5.0f;
+				if (health > 100.0f)
+					health = 100.0f;
+			}
+
+			damage_camera.UpdateDamage (health);
+		}
+
         horizontal = Input.GetAxis("Controller 1 - Horizontal");
 
         if (transitioning)
@@ -115,6 +165,8 @@ public class Pigeon : MonoBehaviour
         {
             Kill();
         }
+
+        HandleMessageProximity();
     }
 
 
@@ -166,6 +218,40 @@ public class Pigeon : MonoBehaviour
             } break;
 
             default: {} break;
+        }
+    }
+
+
+    void HandleMessageProximity()
+    {
+        if (destination == null || flight_mode != FlightMode.HIGH || transitioning)
+        {
+            SetVibration(0, 0);
+            return;
+        }
+
+        float dist = Vector3.Distance(transform.position, destination.transform.position);
+        if (dist > dist_before_vibrate)
+        {
+            SetVibration(0, 0);
+            return;
+        }
+
+        float vibration_amount = (dist_before_vibrate - dist) * 0.001f;
+        vibration_amount = Mathf.Clamp(vibration_amount, 0, 0.2f);
+        SetVibration(vibration_amount, vibration_amount);
+    }
+
+
+    void SetVibration(float _left, float _right)
+    {
+        var player = ReInput.players.GetPlayer(0);
+        foreach(Joystick j in player.controllers.Joysticks)
+        {
+            if (!j.supportsVibration)
+                continue;
+
+            j.SetVibration(_left, _right);
         }
     }
 
