@@ -16,6 +16,8 @@ public class Pigeon : MonoBehaviour
     [SerializeField] float high_altitude = 30;
     [SerializeField] float turn_speed = 80;
     [SerializeField] float move_speed = 40;
+    [SerializeField] float bank_angle = 25;
+    [SerializeField] private float bank_speed = 100;
 
     [Space]
     [SerializeField] FlightMode current_mode = FlightMode.HIGH;
@@ -66,8 +68,8 @@ public class Pigeon : MonoBehaviour
         }
         else
         {
-            Vector3 euler = new Vector3(0, 0, -horizontal * 25);
-            body.transform.localRotation = Quaternion.RotateTowards(body.transform.localRotation, Quaternion.Euler(euler), 100 * Time.deltaTime);
+            Vector3 euler = new Vector3(0, 0, -horizontal * bank_angle);
+            body.transform.localRotation = Quaternion.RotateTowards(body.transform.localRotation, Quaternion.Euler(euler), bank_speed * Time.deltaTime);
         }
 
         if (!transitioning && Input.GetButtonDown("Controller 1 - Y"))
