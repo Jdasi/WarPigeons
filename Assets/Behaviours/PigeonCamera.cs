@@ -14,6 +14,13 @@ public class PigeonCamera : MonoBehaviour
 
     private float target_fov;
     private Pigeon pigeon;
+    private float target_follow_speed;
+
+
+    public void SetFollowSpeed(float _speed)
+    {
+        target_follow_speed = _speed;
+    }
 
 
     public void SetFOV(float _fov)
@@ -26,12 +33,14 @@ public class PigeonCamera : MonoBehaviour
     {
         pigeon = GameManager.scene.pigeon;
 
+        target_follow_speed = follow_lerp_speed;
         target_fov = cam.fieldOfView;
     }
 
     
     void Update()
     {
+        follow_lerp_speed = Mathf.Lerp(follow_lerp_speed, target_follow_speed, 15 * Time.deltaTime);
         cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, target_fov, fov_lerp_speed * Time.deltaTime);
     }
 
