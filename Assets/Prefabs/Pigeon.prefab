@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4991910561691936}
   - component: {fileID: 95296448395640132}
   - component: {fileID: 114669205239451344}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pigeon boi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4548393683066150}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4808317440386824}
   - component: {fileID: 137123525201249602}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pigeon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4630034087967946}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: connectBone004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4037559885186532}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bone008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4878175343972570}
   - component: {fileID: 96834164708672568}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bone006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4508360014055680}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bone004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4185083801733734}
   - component: {fileID: 96338379778130708}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bone009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 4223208455492266}
   - component: {fileID: 33573513749182546}
   - component: {fileID: 23959162185472734}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Scroll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4430672815509196}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bone003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4845795492693384}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LetterPackMount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4089664085733950}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shoulder right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4619286483903066}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4570011611981074}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Camera Look Target
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -236,7 +236,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4788679718895726}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Camera Follow Target
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -251,7 +251,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4616162150471932}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +266,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4094891994303052}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shoulder Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4724630431029694}
   - component: {fileID: 114436215551874120}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body
   m_TagString: Pigeon
   m_Icon: {fileID: 0}
@@ -297,7 +297,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4769449412690812}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bone007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,7 +316,7 @@ GameObject:
   - component: {fileID: 54085523768375646}
   - component: {fileID: 114654282896798048}
   - component: {fileID: 114490485339116170}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pigeon
   m_TagString: Pigeon
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -331,7 +331,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4961478677889268}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bone005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -415,7 +415,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1477117457724374}
-  m_LocalRotation: {x: -0.40954018, y: -0.68816465, z: 0.5381308, w: 0.2629095}
+  m_LocalRotation: {x: -0.40954018, y: -0.6881647, z: 0.5381309, w: 0.26290953}
   m_LocalPosition: {x: 0.22999972, y: -0.06000514, z: 0.28000054}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

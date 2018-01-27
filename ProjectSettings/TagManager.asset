@@ -10,6 +10,10 @@ TagManager:
   - Terrain
   - SignalLight
   - Pigeon
+  - SquadMan
+  - Gun
+  - ViewCone
+  - RightLeg
   layers:
   - Default
   - TransparentFX
@@ -19,9 +23,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Ragdoll
+  - Terrain
+  - Pigeon
   - 
   - 
   - 

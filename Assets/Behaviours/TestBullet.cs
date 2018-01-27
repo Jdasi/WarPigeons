@@ -37,7 +37,7 @@ public class TestBullet : MonoBehaviour {
         }
         else if (other.tag != "SquadMan")
         {
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 }

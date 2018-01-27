@@ -297,7 +297,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4083307095448054}
-  - component: {fileID: 114052389722948186}
   - component: {fileID: 135063536263094512}
   - component: {fileID: 114650397119300924}
   m_Layer: 10
@@ -860,7 +859,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1263558822775610}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 104.45, y: 6.8, z: -2.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4690382684552434}
@@ -2926,21 +2925,6 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114052389722948186
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1263558822775610}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ed6a681369465748bbdced8f37f8010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 4370657955895174, guid: 3641b8a2bfa83fb43a8e97c27bff18e7,
-    type: 2}
-  shoot_spread: 2
-  stopFollowingRange: 50
 --- !u!114 &114650397119300924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2954,8 +2938,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4370657955895174, guid: 3641b8a2bfa83fb43a8e97c27bff18e7,
     type: 2}
-  shoot_spread: 2
-  stopFollowingRange: 50
+  shoot_spread: 0
+  stopFollowingRange: 55
+  crouchIntervalMax: 5
+  peekIntervalMax: 2
   team: 0
 --- !u!135 &135063536263094512
 SphereCollider:

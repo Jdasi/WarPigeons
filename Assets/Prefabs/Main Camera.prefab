@@ -55,8 +55,7 @@ GameObject:
   - component: {fileID: 92700459895201802}
   - component: {fileID: 124580927377153784}
   - component: {fileID: 81381761001972388}
-  - component: {fileID: 114164840084574200}
-  - component: {fileID: 114728160295908304}
+  - component: {fileID: 114555612109841406}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -185,35 +184,6 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1466271347429720}
   m_Enabled: 1
---- !u!114 &114164840084574200
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1466271347429720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd70d448b18cfbc46af26466f752332c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  visualizeFocus: 0
-  focalLength: 0
-  focalSize: 0.2
-  aperture: 0.5
-  focalTransform: {fileID: 0}
-  maxBlurSize: 2
-  highResolution: 0
-  blurType: 0
-  blurSampleCount: 2
-  nearBlur: 0
-  foregroundOverlap: 1
-  dofHdrShader: {fileID: 4800000, guid: acd613035ff3e455e8abf23fdc8c8c24, type: 3}
-  dx11BokehShader: {fileID: 4800000, guid: d8e82664aa8686642a424c88ab10164a, type: 3}
-  dx11BokehThreshold: 0.5
-  dx11SpawnHeuristic: 0.0875
-  dx11BokehTexture: {fileID: 2800000, guid: a4cdca73d61814d33ac1587f6c163bca, type: 3}
-  dx11BokehScale: 1.2
-  dx11BokehIntensity: 2.5
 --- !u!114 &114285363305357206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -278,7 +248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sway_radius: 10
   sway_speed: 0.2
---- !u!114 &114728160295908304
+--- !u!114 &114555612109841406
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
