@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: 4724630431029694}
   - component: {fileID: 33677763623180794}
   - component: {fileID: 23331731819789054}
+  - component: {fileID: 114436215551874120}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Pigeon
@@ -185,6 +186,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &114436215551874120
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1928851594010256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2dec9d9d7597a340a74c8aee462c964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sway_radius: 2
+  sway_speed: 0.3
 --- !u!114 &114654282896798048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -249,6 +263,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   dive_duration: 1.5
+  high_flight_fov: 70
+  low_flight_fov: 60
   rigid_body: {fileID: 54085523768375646}
   pigeon_camera: {fileID: 0}
 --- !u!135 &135433919432847192
