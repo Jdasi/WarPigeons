@@ -28,8 +28,10 @@ public class Pigeon : MonoBehaviour
 
     [Header("References")]
     [SerializeField] Rigidbody rigid_body;
-    [SerializeField] PigeonCamera pigeon_camera;
     [SerializeField] GameObject body;
+
+    [HideInInspector] public Transform cam_follow_target;
+    [HideInInspector] public Transform cam_lookat_target;
 
     private FlightMode target_mode;
     private bool transitioning { get { return current_mode != target_mode; } }
@@ -38,9 +40,11 @@ public class Pigeon : MonoBehaviour
     private float horizontal;
     
 
-
     void Start()
     {
+        cam_follow_target = transform.Find("Camera Follow Target");
+        cam_lookat_target = transform.Find("Camera Look Target");
+
         SetFlightMode(FlightMode.HIGH);
 
         transform.position = new Vector3(transform.position.x, high_altitude, transform.position.z);
@@ -96,7 +100,7 @@ public class Pigeon : MonoBehaviour
             {
                 dive_timer = dive_duration;
 
-                pigeon_camera.SetFOV(high_flight_fov);
+                GameManager.scene.pigeon_cam.SetFOV(high_flight_fov);
 
                 target_mode = FlightMode.HIGH;
             } break;
@@ -105,7 +109,7 @@ public class Pigeon : MonoBehaviour
             {
                 dive_timer = 0;
 
-                pigeon_camera.SetFOV(low_flight_fov);
+                GameManager.scene.pigeon_cam.SetFOV(low_flight_fov);
 
                 target_mode = FlightMode.LOW;
             } break;
