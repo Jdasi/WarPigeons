@@ -43,15 +43,6 @@ public class TestMovement : MonoBehaviour {
                     break;
             }
         }
-
-        if(Input.GetKey(KeyCode.A))
-        {
-            transform.Rotate(Vector3.up, -1f);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Rotate(Vector3.up, 1f);
-        }
     }
 
     private void FixedUpdate()
@@ -81,6 +72,15 @@ public class TestMovement : MonoBehaviour {
             }
         }
 
-        m_RB.MovePosition(transform.position + (transform.forward * 0.1f));
+        m_RB.MovePosition(transform.position + (transform.forward * 0.5f));
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.Rotate(Vector3.up, -2f);
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            transform.Rotate(Vector3.up, 2f);
+        }
     }
 }
