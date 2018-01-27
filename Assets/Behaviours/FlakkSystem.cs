@@ -22,6 +22,9 @@ public class FlakkSystem : MonoBehaviour
     [SerializeField] float min_shake_duration = 0.33f;
     [SerializeField] float max_shake_duration = 0.5f;
 
+    [Space]
+    [SerializeField] List<AudioClip> flakk_clips;
+
     [Header("References")]
     [SerializeField] GameObject smoke_particle;
 
@@ -88,6 +91,7 @@ public class FlakkSystem : MonoBehaviour
         float strength = Random.Range(min_shake_strength, max_shake_strength);
         float duration = Random.Range(min_shake_duration, max_shake_duration);
 
+        AudioManager.PlayOneShot(flakk_clips[Random.Range(0, flakk_clips.Count)]);
         CameraShake.Shake(strength, duration);
     }
 
