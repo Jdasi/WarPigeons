@@ -32,6 +32,9 @@ public class Pigeon : MonoBehaviour
     [SerializeField] float high_flight_camera_speed = 1;
     [SerializeField] float low_flight_camera_speed = 5;
 
+    [Space]
+    [SerializeField] GameObject ragdoll_prefab;
+
     [Header("References")]
     [SerializeField] Rigidbody rigid_body;
     [SerializeField] GameObject body;
@@ -46,6 +49,29 @@ public class Pigeon : MonoBehaviour
     private float horizontal;
 
     private Vector3 last_pos;
+
+
+    public void Kill()
+    {
+        this.enabled = false;
+        body.SetActive(false);
+
+        var clone = Instantiate(ragdoll_prefab, body.transform.position, body.transform.rotation);
+        var rb = clone.GetComponent<Rigidbody>();
+
+        rb.velocity = body.transform.forward * move_speed;
+        rb.AddForce(body.transform.forward * 30, ForceMode.Impulse);
+        rb.AddTorque(Random.Range(0, 25), Random.Range(0, 25), Random.Range(0, 25));
+
+        GameManager.scene.pigeon_cam.SetTargets(rb.transform, rb.transform);
+        GameManager.scene.pigeon_cam.SetFollowSpeed(0.5f);
+        GameManager.scene.pigeon_cam.SetFOV(80);
+        GameManager.scene.pigeon_cam.follow_offset = new Vector3(0, 5, -5);
+
+        Time.timeScale = 0.75f;
+
+        // TODO: Some invoke or something to end the game after a short delay ..
+    }
     
 
     void Start()
@@ -82,6 +108,11 @@ public class Pigeon : MonoBehaviour
         }
 
         last_pos = transform.position;
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            Kill();
+        }
     }
 
 
@@ -114,6 +145,7 @@ public class Pigeon : MonoBehaviour
 
                 GameManager.scene.pigeon_cam.SetFollowSpeed(high_flight_camera_speed);
                 GameManager.scene.pigeon_cam.SetFOV(high_flight_fov);
+                GameManager.scene.pigeon_cam.follow_offset = Vector3.zero;
 
                 target_mode = FlightMode.HIGH;
             } break;
@@ -124,6 +156,7 @@ public class Pigeon : MonoBehaviour
 
                 GameManager.scene.pigeon_cam.SetFollowSpeed(low_flight_camera_speed);
                 GameManager.scene.pigeon_cam.SetFOV(low_flight_fov);
+                GameManager.scene.pigeon_cam.follow_offset = new Vector3(0, -10, 0);
 
                 target_mode = FlightMode.LOW;
             } break;

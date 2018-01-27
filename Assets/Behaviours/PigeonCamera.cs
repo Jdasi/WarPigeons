@@ -7,7 +7,7 @@ public class PigeonCamera : MonoBehaviour
     [SerializeField] float follow_lerp_speed = 20;
     [SerializeField] float fov_lerp_speed = 5;
     [SerializeField] float look_at_speed = 5;
-    [SerializeField] Vector3 follow_offset;
+    public Vector3 follow_offset;
 
     [Header("References")]
     [SerializeField] Camera cam;
@@ -15,6 +15,9 @@ public class PigeonCamera : MonoBehaviour
     private float target_fov;
     private Pigeon pigeon;
     private float target_follow_speed;
+
+    private Transform follow_target;
+    private Transform lookat_target;
 
 
     public void SetFollowSpeed(float _speed)
@@ -29,9 +32,17 @@ public class PigeonCamera : MonoBehaviour
     }
 
 
+    public void SetTargets(Transform _follow, Transform _lookat)
+    {
+        follow_target = _follow;
+        lookat_target = _lookat;
+    }
+
+
     void Start()
     {
         pigeon = GameManager.scene.pigeon;
+        SetTargets(pigeon.cam_follow_target, pigeon.cam_lookat_target);
 
         target_follow_speed = follow_lerp_speed;
         target_fov = cam.fieldOfView;
@@ -53,8 +64,8 @@ public class PigeonCamera : MonoBehaviour
 
     void Follow()
     {
-        transform.position = Vector3.Lerp(transform.position, pigeon.cam_follow_target.position + follow_offset, follow_lerp_speed * Time.deltaTime);
-        transform.LookAt(pigeon.cam_lookat_target.position);
+        transform.position = Vector3.Lerp(transform.position, follow_target.position + follow_offset, follow_lerp_speed * Time.deltaTime);
+        transform.LookAt(lookat_target.position);
 
         //Quaternion rot = Quaternion.LookRotation(look_target.position - transform.position);
         //transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, look_at_speed * Time.fixedDeltaTime);
