@@ -1249,6 +1249,11 @@ GameObject:
   m_PrefabParentObject: {fileID: 1958703992949180, guid: 3ce1dee08618ad04a859e8b5f6f46a93,
     type: 2}
   m_PrefabInternal: {fileID: 1580601136}
+--- !u!4 &517397806 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4216062323388808, guid: 3ce1dee08618ad04a859e8b5f6f46a93,
+    type: 2}
+  m_PrefabInternal: {fileID: 1580601136}
 --- !u!1 &550926950
 GameObject:
   m_ObjectHideFlags: 0
@@ -2500,26 +2505,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 114285363305357206, guid: 6dc56fe66d95bae408e902adcbeae1d5,
+    - target: {fileID: 114141958845118238, guid: 6dc56fe66d95bae408e902adcbeae1d5,
         type: 2}
-      propertyPath: follow_target
+      propertyPath: focalTransform
       value: 
-      objectReference: {fileID: 1580601138}
-    - target: {fileID: 114285363305357206, guid: 6dc56fe66d95bae408e902adcbeae1d5,
-        type: 2}
-      propertyPath: look_target
-      value: 
-      objectReference: {fileID: 1580601137}
-    - target: {fileID: 114285363305357206, guid: 6dc56fe66d95bae408e902adcbeae1d5,
-        type: 2}
-      propertyPath: pigeon
-      value: 
-      objectReference: {fileID: 1580601139}
-    - target: {fileID: 114285363305357206, guid: 6dc56fe66d95bae408e902adcbeae1d5,
-        type: 2}
-      propertyPath: follow_lerp_speed
-      value: 1
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 517397806}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6dc56fe66d95bae408e902adcbeae1d5, type: 2}
   m_IsPrefabParent: 0
@@ -3595,22 +3585,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ce1dee08618ad04a859e8b5f6f46a93, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &1580601137 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4570011611981074, guid: 3ce1dee08618ad04a859e8b5f6f46a93,
-    type: 2}
-  m_PrefabInternal: {fileID: 1580601136}
---- !u!4 &1580601138 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4788679718895726, guid: 3ce1dee08618ad04a859e8b5f6f46a93,
-    type: 2}
-  m_PrefabInternal: {fileID: 1580601136}
---- !u!114 &1580601139 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114654282896798048, guid: 3ce1dee08618ad04a859e8b5f6f46a93,
-    type: 2}
-  m_PrefabInternal: {fileID: 1580601136}
-  m_Script: {fileID: 11500000, guid: 7dc203ae23baa7541b74b9023ee016bf, type: 3}
 --- !u!1 &1580978685
 GameObject:
   m_ObjectHideFlags: 0

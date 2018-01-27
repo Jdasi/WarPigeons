@@ -55,6 +55,9 @@ GameObject:
   - component: {fileID: 92700459895201802}
   - component: {fileID: 124580927377153784}
   - component: {fileID: 81381761001972388}
+  - component: {fileID: 114141958845118238}
+  - component: {fileID: 114437176933868936}
+  - component: {fileID: 114354578755307404}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -183,6 +186,35 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1466271347429720}
   m_Enabled: 1
+--- !u!114 &114141958845118238
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1466271347429720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd70d448b18cfbc46af26466f752332c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visualizeFocus: 0
+  focalLength: 0
+  focalSize: 0.3
+  aperture: 0.55
+  focalTransform: {fileID: 0}
+  maxBlurSize: 2
+  highResolution: 0
+  blurType: 0
+  blurSampleCount: 2
+  nearBlur: 0
+  foregroundOverlap: 1
+  dofHdrShader: {fileID: 4800000, guid: acd613035ff3e455e8abf23fdc8c8c24, type: 3}
+  dx11BokehShader: {fileID: 4800000, guid: d8e82664aa8686642a424c88ab10164a, type: 3}
+  dx11BokehThreshold: 0.5
+  dx11SpawnHeuristic: 0.0875
+  dx11BokehTexture: {fileID: 2800000, guid: a4cdca73d61814d33ac1587f6c163bca, type: 3}
+  dx11BokehScale: 1.2
+  dx11BokehIntensity: 2.5
 --- !u!114 &114285363305357206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -194,13 +226,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b75b50f4823599a4785e9e16c8bfbc71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  follow_lerp_speed: 20
+  follow_lerp_speed: 1
   fov_lerp_speed: 1
   look_at_speed: 30
   follow_offset: {x: 0, y: 0, z: 0}
-  follow_target: {fileID: 0}
-  look_target: {fileID: 0}
-  pigeon: {fileID: 0}
   cam: {fileID: 20177106192229220}
 --- !u!114 &114300258457976444
 MonoBehaviour:
@@ -237,6 +266,29 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114354578755307404
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1466271347429720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd6d4281e5d7cd44d8c6e38bc2c1b8d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  intensity: 0.1
+  chromaticAberration: 0.2
+  axialAberration: 0.5
+  blur: 0
+  blurSpread: 0.75
+  luminanceDependency: 0.25
+  blurDistance: 2.5
+  vignetteShader: {fileID: 4800000, guid: 627943dc7a9a74286b70a4f694a0acd5, type: 3}
+  separableBlurShader: {fileID: 4800000, guid: e97c14fbb5ea04c3a902cc533d7fc5d1, type: 3}
+  chromAberrationShader: {fileID: 4800000, guid: 2b4f29398d9484ccfa9fd220449f5eee,
+    type: 3}
 --- !u!114 &114360130885071704
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -250,6 +302,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sway_radius: 10
   sway_speed: 0.2
+--- !u!114 &114437176933868936
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1466271347429720}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478a2083ad114a07d000fbfb8d76c639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shader: {fileID: 4800000, guid: e9ba2083ad114a07d000fbfb8d76c639, type: 3}
+  blurAmount: 0
+  extraBlur: 0
 --- !u!124 &124580927377153784
 Behaviour:
   m_ObjectHideFlags: 1
