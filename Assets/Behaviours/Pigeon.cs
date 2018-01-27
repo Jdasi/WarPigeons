@@ -17,7 +17,7 @@ public class Pigeon : MonoBehaviour
     [SerializeField] float turn_speed = 80;
     [SerializeField] float move_speed = 40;
     [SerializeField] float bank_angle = 25;
-    [SerializeField] private float bank_speed = 100;
+    [SerializeField] float bank_speed = 100;
 
     [Space]
     [SerializeField] FlightMode current_mode = FlightMode.HIGH;
@@ -155,7 +155,10 @@ public class Pigeon : MonoBehaviour
 
         if (!transitioning)
         {
-            transform.Rotate(Vector3.up, horizontal * turn_speed * Time.deltaTime);
+            float trigger_axis = Input.GetAxis("Controller 1 - Trigger");
+            float modifier = 1 + (trigger_axis * 0.75f);
+
+            transform.Rotate(Vector3.up, horizontal * turn_speed * modifier * Time.deltaTime);
         }
     }
 
