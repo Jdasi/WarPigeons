@@ -37,8 +37,8 @@ public class VolumeRenderer : MonoBehaviour
 
     void Update ()
     {     
-          //if (Input.GetKey(KeyCode.A))
-          //  UpdateClouds();
+          if (Input.GetKey(KeyCode.U))
+            UpdateClouds();
 
           UpdateVolumeRenderer();
     }
@@ -53,7 +53,7 @@ public class VolumeRenderer : MonoBehaviour
             {
                 for (int z = 0; z < size.z; ++z)
                 {
-                    float colour_value = Noise.Perlin3D(new Vector3(x, y, z), frequency);
+                    float colour_value = Noise.Perlin3D(new Vector3(x, y, z) + transform.position, frequency);
 
                     colour_value = Mathf.Clamp(colour_value, contrast_low,
                         contrast_high + contrast_low) - contrast_low;
