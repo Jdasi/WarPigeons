@@ -44,7 +44,7 @@ public class VolumeRenderer : MonoBehaviour
     }
 
 
-    void GenerateClouds()
+    private void GenerateClouds()
     {
         Color[] pixels = new Color[(int)(size.x * size.y * size.z)];
         for (int y = 0; y < size.y; ++y)
@@ -68,21 +68,6 @@ public class VolumeRenderer : MonoBehaviour
 
         texture.SetPixels(pixels);
         texture.Apply();
-    }
-
-
-    float PerlinNoise3D(float _x, float _y, float _z)
-    {
-        float ab = Mathf.PerlinNoise(_x, _y);
-        float bc = Mathf.PerlinNoise(_y, _z);
-        float ac = Mathf.PerlinNoise(_x, _z);
-
-        float ba = Mathf.PerlinNoise(_y, _x);
-        float cb = Mathf.PerlinNoise(_z, _y);
-        float ca = Mathf.PerlinNoise(_z, _x);
-
-        float abc = ab + bc + ac + ba + cb + ca;
-        return abc / 6;
     }
 
 
