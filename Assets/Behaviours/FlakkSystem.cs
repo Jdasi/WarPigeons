@@ -85,7 +85,10 @@ public class FlakkSystem : MonoBehaviour
         var hits = Physics.OverlapSphere(shoot_pos, shot_damage_radius);
         foreach (var hit in hits)
         {
-            // if bird, damage
+			if (hit.tag == "Pigeon") {
+				hit.GetComponent<Pigeon> ().Damage (50.0f);
+				hit.GetComponent<Pigeon> ().Daze ();
+			}
         }
 
         float strength = Random.Range(min_shake_strength, max_shake_strength);
