@@ -42,6 +42,7 @@ public class Pigeon : MonoBehaviour
     [Header("References")]
     [SerializeField] Rigidbody rigid_body;
     [SerializeField] GameObject body;
+    [SerializeField] GameObject letter_obj;
 
     [HideInInspector] public Transform cam_follow_target;
     [HideInInspector] public Transform cam_lookat_target;
@@ -53,12 +54,13 @@ public class Pigeon : MonoBehaviour
     private float horizontal;
 
     private Vector3 last_pos;
-    private MessageCollectible collectible;
-	DamageFlash damage_camera;
+    private PigeonDestination destination;
+	private DamageFlash damage_camera;
 
-	float health = 100.0f;
-	float damaged = 0.0f;
+	private float health = 100.0f;
+	private float damaged = 0.0f;
 
+	
 	public void Damage(float amount)
 	{
 		if (health < 0.0f)
@@ -68,6 +70,18 @@ public class Pigeon : MonoBehaviour
 		if (health <= 0.0f)
 			Kill ();
 	}
+	
+	
+	public void SetDestination(PigeonDestination _destination)
+    {
+        destination = _destination;
+    }
+
+
+    public void SetLetterEquipped(bool _equipped)
+    {
+        letter_obj.SetActive(_equipped);
+    }
 
 
     public void Kill()
@@ -92,12 +106,6 @@ public class Pigeon : MonoBehaviour
 		damage_camera.Death ();
 
         // TODO: Some invoke or something to end the game after a short delay ..
-    }
-
-
-    public void MessageSpawned(MessageCollectible _collectible)
-    {
-        collectible = _collectible;
     }
     
 
@@ -216,13 +224,13 @@ public class Pigeon : MonoBehaviour
 
     void HandleMessageProximity()
     {
-        if (collectible == null || flight_mode != FlightMode.HIGH || transitioning)
+        if (destination == null || flight_mode != FlightMode.HIGH || transitioning)
         {
             SetVibration(0, 0);
             return;
         }
 
-        float dist = Vector3.Distance(transform.position, collectible.transform.position);
+        float dist = Vector3.Distance(transform.position, destination.transform.position);
         if (dist > dist_before_vibrate)
         {
             SetVibration(0, 0);

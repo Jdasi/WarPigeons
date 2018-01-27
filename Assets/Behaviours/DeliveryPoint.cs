@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MessageCollectible : PigeonDestination
+public class DeliveryPoint : PigeonDestination
 {
 
     void OnTriggerEnter(Collider _other)
@@ -10,8 +10,8 @@ public class MessageCollectible : PigeonDestination
         if (!_other.CompareTag("Pigeon"))
             return;
 
-        GameManager.scene.pigeon.SetLetterEquipped(true);
-        GameManager.scene.message_spawner.MessageCollected();
+        GameManager.scene.pigeon.SetLetterEquipped(false);
+        GameManager.scene.message_spawner.MessageDelivered();
 
         Destroy(this.gameObject);
     }
