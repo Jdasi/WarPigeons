@@ -194,13 +194,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b75b50f4823599a4785e9e16c8bfbc71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  follow_lerp_speed: 20
+  follow_lerp_speed: 1
   fov_lerp_speed: 1
   look_at_speed: 30
   follow_offset: {x: 0, y: 0, z: 0}
-  follow_target: {fileID: 0}
-  look_target: {fileID: 0}
-  pigeon: {fileID: 0}
   cam: {fileID: 20177106192229220}
 --- !u!114 &114300258457976444
 MonoBehaviour:
