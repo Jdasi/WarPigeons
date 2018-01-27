@@ -9,15 +9,11 @@ public class PigeonCamera : MonoBehaviour
     [SerializeField] float look_at_speed = 5;
     [SerializeField] Vector3 follow_offset;
 
-    [Space]
-    [SerializeField] Transform follow_target;
-    [SerializeField] Transform look_target;
-
     [Header("References")]
-    [SerializeField] Pigeon pigeon;
     [SerializeField] Camera cam;
 
     private float target_fov;
+    private Pigeon pigeon;
 
 
     public void SetFOV(float _fov)
@@ -28,6 +24,8 @@ public class PigeonCamera : MonoBehaviour
 
     void Start()
     {
+        pigeon = GameManager.scene.pigeon;
+
         target_fov = cam.fieldOfView;
     }
 
@@ -46,19 +44,11 @@ public class PigeonCamera : MonoBehaviour
 
     void Follow()
     {
-        transform.position = Vector3.Lerp(transform.position, follow_target.position + follow_offset, follow_lerp_speed * Time.deltaTime);
-        transform.LookAt(look_target.position);
+        transform.position = Vector3.Lerp(transform.position, pigeon.cam_follow_target.position + follow_offset, follow_lerp_speed * Time.deltaTime);
+        transform.LookAt(pigeon.cam_lookat_target.position);
 
         //Quaternion rot = Quaternion.LookRotation(look_target.position - transform.position);
         //transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, look_at_speed * Time.fixedDeltaTime);
     }
 
-
-    void OnDrawGizmos()
-    {
-        if (follow_target == null || look_target == null)
-            return;
-
-        Gizmos.DrawRay(follow_target.position, look_target.position - follow_target.position);
-    }
 }

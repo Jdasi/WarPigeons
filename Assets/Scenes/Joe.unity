@@ -2196,7 +2196,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4138527224776042, guid: 909d3e07d29c381418df68e5399944af, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 8.51325
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4138527224776042, guid: 909d3e07d29c381418df68e5399944af, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2299,12 +2299,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6dc56fe66d95bae408e902adcbeae1d5, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1157027248 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114285363305357206, guid: 6dc56fe66d95bae408e902adcbeae1d5,
-    type: 2}
-  m_PrefabInternal: {fileID: 1157027247}
-  m_Script: {fileID: 11500000, guid: b75b50f4823599a4785e9e16c8bfbc71, type: 3}
 --- !u!1 &1189338436
 GameObject:
   m_ObjectHideFlags: 0
@@ -3412,11 +3406,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114654282896798048, guid: 3ce1dee08618ad04a859e8b5f6f46a93,
-        type: 2}
-      propertyPath: pigeon_camera
-      value: 
-      objectReference: {fileID: 1157027248}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ce1dee08618ad04a859e8b5f6f46a93, type: 2}
   m_IsPrefabParent: 0
