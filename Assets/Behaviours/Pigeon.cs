@@ -29,11 +29,13 @@ public class Pigeon : MonoBehaviour
     [Header("References")]
     [SerializeField] Rigidbody rigid_body;
     [SerializeField] PigeonCamera pigeon_camera;
+    [SerializeField] GameObject body;
 
     private FlightMode target_mode;
     private bool transitioning { get { return current_mode != target_mode; } }
 
     private float dive_timer;
+    private float horizontal;
     
 
 
@@ -47,6 +49,19 @@ public class Pigeon : MonoBehaviour
 
     void Update()
     {
+        horizontal = Input.GetAxis("Controller 1 - Horizontal");
+
+        if (transitioning)
+        {
+            Vector3 euler = new Vector3(0, 0, -horizontal * 25);
+            body.transform.localRotation = Quaternion.RotateTowards(body.transform.localRotation, Quaternion.Euler(Vector3.zero), 70 * Time.deltaTime);
+        }
+        else
+        {
+            Vector3 euler = new Vector3(0, 0, -horizontal * 25);
+            body.transform.localRotation = Quaternion.RotateTowards(body.transform.localRotation, Quaternion.Euler(euler), 70 * Time.deltaTime);
+        }
+
         if (!transitioning && Input.GetButtonDown("Controller 1 - Y"))
         {
             ToggleFlightMode();
@@ -122,7 +137,7 @@ public class Pigeon : MonoBehaviour
 
         if (!transitioning)
         {
-            transform.Rotate(Vector3.up, Input.GetAxis("Controller 1 - Horizontal") * turn_speed * Time.deltaTime);
+            transform.Rotate(Vector3.up, horizontal * turn_speed * Time.deltaTime);
         }
     }
 

@@ -245,7 +245,7 @@ Transform:
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114285363305357206, guid: 6dc56fe66d95bae408e902adcbeae1d5,
     type: 2}
-  m_PrefabInternal: {fileID: 2006284679}
+  m_PrefabInternal: {fileID: 2111427654}
   m_Script: {fileID: 11500000, guid: b75b50f4823599a4785e9e16c8bfbc71, type: 3}
 --- !u!1001 &1960262373
 Prefab:
@@ -294,7 +294,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ce1dee08618ad04a859e8b5f6f46a93, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &2006284679
+--- !u!1001 &2111427654
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2

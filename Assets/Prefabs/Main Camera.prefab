@@ -27,22 +27,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1176114184026588
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4116711845951862}
-  - component: {fileID: 114836725852385794}
-  m_Layer: 0
-  m_Name: SwayJoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1201008880870086
 GameObject:
   m_ObjectHideFlags: 1
@@ -78,12 +62,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4116711845951862
+--- !u!1 &1934365187055252
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4104716830739022}
+  - component: {fileID: 114360130885071704}
+  m_Layer: 0
+  m_Name: SwayJoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4104716830739022
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1176114184026588}
+  m_GameObject: {fileID: 1934365187055252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -116,7 +116,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4750649991527130}
-  m_Father: {fileID: 4116711845951862}
+  m_Father: {fileID: 4104716830739022}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 70, y: 0, z: 0}
 --- !u!4 &4967062885371150
@@ -129,7 +129,7 @@ Transform:
   m_LocalPosition: {x: 43.9, y: 42.54, z: -3.5}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
-  - {fileID: 4116711845951862}
+  - {fileID: 4104716830739022}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 70, y: 0, z: 0}
@@ -196,6 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   follow_lerp_speed: 20
   fov_lerp_speed: 1
+  look_at_speed: 30
   follow_offset: {x: 0, y: 0, z: 0}
   follow_target: {fileID: 0}
   look_target: {fileID: 0}
@@ -236,19 +237,19 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114836725852385794
+--- !u!114 &114360130885071704
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1176114184026588}
+  m_GameObject: {fileID: 1934365187055252}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2dec9d9d7597a340a74c8aee462c964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sway_radius: 10
-  sway_speed: 0.1
+  sway_speed: 0.2
 --- !u!124 &124580927377153784
 Behaviour:
   m_ObjectHideFlags: 1

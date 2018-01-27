@@ -6,6 +6,7 @@ public class PigeonCamera : MonoBehaviour
 {
     [SerializeField] float follow_lerp_speed = 20;
     [SerializeField] float fov_lerp_speed = 5;
+    [SerializeField] float look_at_speed = 5;
     [SerializeField] Vector3 follow_offset;
 
     [Space]
@@ -47,6 +48,9 @@ public class PigeonCamera : MonoBehaviour
     {
         transform.position = Vector3.Lerp(transform.position, follow_target.position + follow_offset, follow_lerp_speed * Time.deltaTime);
         transform.LookAt(look_target.position);
+
+        //Quaternion rot = Quaternion.LookRotation(look_target.position - transform.position);
+        //transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, look_at_speed * Time.fixedDeltaTime);
     }
 
 
