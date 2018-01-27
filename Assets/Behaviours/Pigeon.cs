@@ -38,10 +38,14 @@ public class Pigeon : MonoBehaviour
 
     private float dive_timer;
     private float horizontal;
+
+    private Vector3 last_pos;
     
 
     void Start()
     {
+        last_pos = transform.position;
+
         cam_follow_target = transform.Find("Camera Follow Target");
         cam_lookat_target = transform.Find("Camera Look Target");
 
@@ -57,19 +61,21 @@ public class Pigeon : MonoBehaviour
 
         if (transitioning)
         {
-            Vector3 euler = new Vector3(0, 0, -horizontal * 25);
-            body.transform.localRotation = Quaternion.RotateTowards(body.transform.localRotation, Quaternion.Euler(Vector3.zero), 70 * Time.deltaTime);
+            Vector3 euler = new Vector3((last_pos - transform.position).y * 50, 0, 0);
+            body.transform.localRotation = Quaternion.RotateTowards(body.transform.localRotation, Quaternion.Euler(euler), 300 * Time.deltaTime);
         }
         else
         {
             Vector3 euler = new Vector3(0, 0, -horizontal * 25);
-            body.transform.localRotation = Quaternion.RotateTowards(body.transform.localRotation, Quaternion.Euler(euler), 70 * Time.deltaTime);
+            body.transform.localRotation = Quaternion.RotateTowards(body.transform.localRotation, Quaternion.Euler(euler), 100 * Time.deltaTime);
         }
 
         if (!transitioning && Input.GetButtonDown("Controller 1 - Y"))
         {
             ToggleFlightMode();
         }
+
+        last_pos = transform.position;
     }
 
 
