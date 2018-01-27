@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4991910561691936}
   - component: {fileID: 95296448395640132}
   - component: {fileID: 114669205239451344}
-  - component: {fileID: 114013460750234000}
   m_Layer: 0
   m_Name: Pigeon boi
   m_TagString: Untagged
@@ -368,7 +367,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1958703992949180}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 43.91, y: 30, z: 19.15}
+  m_LocalPosition: {x: 57.57, y: 23.42, z: -7.06}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4788679718895726}
@@ -425,7 +424,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1747505027544396}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 8.6}
+  m_LocalPosition: {x: 0, y: 0, z: 7.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4216062323388808}
@@ -783,19 +782,6 @@ TrailRenderer:
     textureMode: 0
   m_MinVertexDistance: 0.01
   m_Autodestruct: 0
---- !u!114 &114013460750234000
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1010618088068838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63eac9f7da67092479fa31de626fbd03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flap_range: {x: 3, y: 6}
-  glide_range: {x: 1, y: 3}
 --- !u!114 &114436215551874120
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -878,7 +864,9 @@ MonoBehaviour:
   high_flight_fov: 80
   low_flight_fov: 70
   high_flight_camera_speed: 1
-  low_flight_camera_speed: 2
+  low_flight_camera_speed: 3
+  ragdoll_prefab: {fileID: 1876938611773286, guid: 8d2e8050a31288e45a55ed99737eab1a,
+    type: 2}
   rigid_body: {fileID: 54085523768375646}
   body: {fileID: 1928851594010256}
   cam_follow_target: {fileID: 0}
