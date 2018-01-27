@@ -5,40 +5,46 @@ using UnityEngine;
 
 public class TransformFollower : MonoBehaviour
 {
-    public Vector3 offset;
-    public bool rotate;
+    [SerializeField] bool fixed_update;
+    [SerializeField] float lerp_speed;
+    [SerializeField] Vector3 follow_offset;
 
-    public Transform target
-    {
-        get
-        {
-            return target_;
-        }
-
-        set
-        {
-            target_ = value;
-            this.gameObject.SetActive(true);
-        }
-    }
-
-    [SerializeField] Transform target_;
+    [Space]
+    [SerializeField] Transform follow_target;
+    [SerializeField] Transform look_target;
 
     
-    public void Update()
+    void Update()
     {
-        if (target == null)
-        {
-            this.gameObject.SetActive(false);
+        if (fixed_update)
             return;
-        }
 
-        transform.position = new Vector3(target.transform.position.x,
-            target.transform.position.y, target.transform.position.z) + offset;
-
-        if (rotate)
-        {
-            transform.eulerAngles = new Vector3(25, target.eulerAngles.y, 0);
-        }
+        Follow();
     }
+
+
+    void FixedUpdate()
+    {
+        if (!fixed_update)
+            return;
+
+        Follow();
+    }
+
+
+    void Follow()
+    {
+        transform.position = Vector3.Lerp(transform.position, follow_target.position + follow_offset, lerp_speed * Time.deltaTime);
+        transform.LookAt(look_target.position);
+    }
+
+
+    void OnDrawGizmos()
+    {
+        if (follow_target == null || look_target == null)
+            return;
+
+        Gizmos.DrawRay(follow_target.position, look_target.position - follow_target.position);
+    }
+
 }

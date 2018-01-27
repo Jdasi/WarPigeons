@@ -55,7 +55,7 @@ MonoBehaviour:
   max_shot_delay: 2.5
   aiming_extents: {x: 15, y: 5, z: 20}
   shot_damage_radius: 5
-  engage_height: 10
+  engage_height: 30
   engage_delay: 1
   smoke_particle: {fileID: 1853365240081952, guid: 47750a1b712a82740ad4839c894ce8fe,
     type: 2}
