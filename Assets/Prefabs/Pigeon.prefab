@@ -867,6 +867,7 @@ MonoBehaviour:
   low_flight_camera_speed: 3
   ragdoll_prefab: {fileID: 1876938611773286, guid: 8d2e8050a31288e45a55ed99737eab1a,
     type: 2}
+  dist_before_vibrate: 250
   rigid_body: {fileID: 54085523768375646}
   body: {fileID: 1928851594010256}
   cam_follow_target: {fileID: 0}

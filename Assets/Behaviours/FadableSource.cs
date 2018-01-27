@@ -51,7 +51,6 @@ public class FadableSource : MonoBehaviour
 
         if (fading)
         {
-            Debug.Log("fading");
             HandleFade();
         }
     }
