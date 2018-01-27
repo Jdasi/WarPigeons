@@ -32,8 +32,11 @@ public class TestBullet : MonoBehaviour {
     {
         if(other.tag == "Pigeon")
         {
-            Debug.Log("Hit");
             Destroy(gameObject);
+        }
+        else if (other.tag != "SquadMan")
+        {
+            //Destroy(gameObject);
         }
     }
 }

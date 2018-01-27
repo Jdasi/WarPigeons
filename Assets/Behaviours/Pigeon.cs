@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Rewired;
 
 public class Pigeon : MonoBehaviour
 {
@@ -35,6 +36,9 @@ public class Pigeon : MonoBehaviour
     [Space]
     [SerializeField] GameObject ragdoll_prefab;
 
+    [Space]
+    [SerializeField] float dist_before_vibrate = 200;
+
     [Header("References")]
     [SerializeField] Rigidbody rigid_body;
     [SerializeField] GameObject body;
@@ -49,6 +53,7 @@ public class Pigeon : MonoBehaviour
     private float horizontal;
 
     private Vector3 last_pos;
+    private MessageCollectible collectible;
 
 
     public void Kill()
@@ -71,6 +76,12 @@ public class Pigeon : MonoBehaviour
         Time.timeScale = 0.75f;
 
         // TODO: Some invoke or something to end the game after a short delay ..
+    }
+
+
+    public void MessageSpawned(MessageCollectible _collectible)
+    {
+        collectible = _collectible;
     }
     
 
@@ -115,6 +126,8 @@ public class Pigeon : MonoBehaviour
         {
             Kill();
         }
+
+        HandleMessageProximity();
     }
 
 
@@ -166,6 +179,40 @@ public class Pigeon : MonoBehaviour
             } break;
 
             default: {} break;
+        }
+    }
+
+
+    void HandleMessageProximity()
+    {
+        if (collectible == null || flight_mode != FlightMode.HIGH || transitioning)
+        {
+            SetVibration(0, 0);
+            return;
+        }
+
+        float dist = Vector3.Distance(transform.position, collectible.transform.position);
+        if (dist > dist_before_vibrate)
+        {
+            SetVibration(0, 0);
+            return;
+        }
+
+        float vibration_amount = (dist_before_vibrate - dist) * 0.001f;
+        vibration_amount = Mathf.Clamp(vibration_amount, 0, 0.2f);
+        SetVibration(vibration_amount, vibration_amount);
+    }
+
+
+    void SetVibration(float _left, float _right)
+    {
+        var player = ReInput.players.GetPlayer(0);
+        foreach(Joystick j in player.controllers.Joysticks)
+        {
+            if (!j.supportsVibration)
+                continue;
+
+            j.SetVibration(_left, _right);
         }
     }
 
