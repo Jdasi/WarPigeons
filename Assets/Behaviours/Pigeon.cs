@@ -26,6 +26,10 @@ public class Pigeon : MonoBehaviour
     [SerializeField] float high_flight_fov = 70;
     [SerializeField] float low_flight_fov = 60;
 
+    [Space]
+    [SerializeField] float high_flight_camera_speed = 1;
+    [SerializeField] float low_flight_camera_speed = 5;
+
     [Header("References")]
     [SerializeField] Rigidbody rigid_body;
     [SerializeField] GameObject body;
@@ -106,6 +110,7 @@ public class Pigeon : MonoBehaviour
             {
                 dive_timer = dive_duration;
 
+                GameManager.scene.pigeon_cam.SetFollowSpeed(high_flight_camera_speed);
                 GameManager.scene.pigeon_cam.SetFOV(high_flight_fov);
 
                 target_mode = FlightMode.HIGH;
@@ -115,6 +120,7 @@ public class Pigeon : MonoBehaviour
             {
                 dive_timer = 0;
 
+                GameManager.scene.pigeon_cam.SetFollowSpeed(low_flight_camera_speed);
                 GameManager.scene.pigeon_cam.SetFOV(low_flight_fov);
 
                 target_mode = FlightMode.LOW;
