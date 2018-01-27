@@ -32,6 +32,7 @@ public class TestBullet : MonoBehaviour {
     {
         if(other.tag == "Pigeon")
         {
+			other.GetComponent<Pigeon> ().Damage (15.0f);
             Destroy(gameObject);
         }
         else if (other.tag != "SquadMan")

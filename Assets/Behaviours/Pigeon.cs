@@ -54,6 +54,20 @@ public class Pigeon : MonoBehaviour
 
     private Vector3 last_pos;
     private MessageCollectible collectible;
+	DamageFlash damage_camera;
+
+	float health = 100.0f;
+	float damaged = 0.0f;
+
+	public void Damage(float amount)
+	{
+		if (health < 0.0f)
+			return;
+		health -= amount;
+		damaged = 1.0f;
+		if (health <= 0.0f)
+			Kill ();
+	}
 
 
     public void Kill()
@@ -75,6 +89,8 @@ public class Pigeon : MonoBehaviour
 
         Time.timeScale = 0.75f;
 
+		damage_camera.Death ();
+
         // TODO: Some invoke or something to end the game after a short delay ..
     }
 
@@ -87,6 +103,9 @@ public class Pigeon : MonoBehaviour
 
     void Start()
     {
+		damage_camera = GetComponent<DamageFlash>();
+		damage_camera.UpdateDamage (health);
+
         AudioManager.SetAmbience(AmbienceType.ABOVE);
 
         last_pos = transform.position;
@@ -102,6 +121,18 @@ public class Pigeon : MonoBehaviour
 
     void Update()
     {
+		if (health > 0.0f && health < 100.0f) {
+			if (damaged > 0.0f) {
+				damaged -= Time.deltaTime;
+			} else {
+				health += Time.deltaTime * 5.0f;
+				if (health > 100.0f)
+					health = 100.0f;
+			}
+
+			damage_camera.UpdateDamage (health);
+		}
+
         horizontal = Input.GetAxis("Controller 1 - Horizontal");
 
         if (transitioning)
