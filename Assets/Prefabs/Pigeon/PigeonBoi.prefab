@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 54544845084826940}
   - component: {fileID: 135835554176890112}
   m_Layer: 0
-  m_Name: Pigeon
+  m_Name: PigeonBoi
   m_TagString: Aircraft
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
