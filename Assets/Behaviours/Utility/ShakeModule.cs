@@ -8,7 +8,7 @@ public class ShakeModule : MonoBehaviour
 
     [SerializeField] AnimationCurve decay_rate;
 
-    private bool shaking;
+    [SerializeField] bool shaking;
     private float shake_strength;
     private float shake_duration;
     private float shake_time;

@@ -22,8 +22,13 @@ public class Pigeon : MonoBehaviour
     [SerializeField] AnimationCurve dive_curve;
     [SerializeField] float dive_duration;
 
+    [Space]
+    [SerializeField] float high_flight_fov = 70;
+    [SerializeField] float low_flight_fov = 60;
+
     [Header("References")]
     [SerializeField] Rigidbody rigid_body;
+    [SerializeField] PigeonCamera pigeon_camera;
 
     private FlightMode target_mode;
     private bool transitioning { get { return current_mode != target_mode; } }
@@ -34,7 +39,7 @@ public class Pigeon : MonoBehaviour
 
     void Start()
     {
-        target_mode = current_mode;
+        SetFlightMode(FlightMode.HIGH);
 
         transform.position = new Vector3(transform.position.x, high_altitude, transform.position.z);
     }
@@ -44,27 +49,53 @@ public class Pigeon : MonoBehaviour
     {
         if (!transitioning && Input.GetButtonDown("Controller 1 - Y"))
         {
-            switch (current_mode)
-            {
-                case FlightMode.HIGH:
-                {
-                    dive_timer = 0;
-                    target_mode = FlightMode.LOW;
-                } break;
-
-                case FlightMode.LOW:
-                {
-                    dive_timer = dive_duration;
-                    target_mode = FlightMode.HIGH;
-                } break;
-
-                default: {} break;
-            }
+            ToggleFlightMode();
         }
+    }
 
-        if (transitioning)
+
+    void ToggleFlightMode()
+    {
+        switch (current_mode)
         {
-            dive_timer += current_mode == FlightMode.HIGH ? Time.deltaTime : -Time.deltaTime;
+            case FlightMode.HIGH:
+            {
+                SetFlightMode(FlightMode.LOW);
+            } break;
+
+            case FlightMode.LOW:
+            {
+                SetFlightMode(FlightMode.HIGH);
+            } break;
+
+            default: {} break;
+        }
+    }
+
+
+    void SetFlightMode(FlightMode _mode)
+    {
+        switch (_mode)
+        {
+            case FlightMode.HIGH:
+            {
+                dive_timer = dive_duration;
+
+                pigeon_camera.SetFOV(high_flight_fov);
+
+                target_mode = FlightMode.HIGH;
+            } break;
+
+            case FlightMode.LOW:
+            {
+                dive_timer = 0;
+
+                pigeon_camera.SetFOV(low_flight_fov);
+
+                target_mode = FlightMode.LOW;
+            } break;
+
+            default: {} break;
         }
     }
 
@@ -73,6 +104,8 @@ public class Pigeon : MonoBehaviour
     {
         if (transitioning)
         {
+            dive_timer += current_mode == FlightMode.HIGH ? Time.deltaTime : -Time.deltaTime;
+
             float curve_step = high_altitude * dive_curve.Evaluate(dive_timer / dive_duration);
             rigid_body.MovePosition(new Vector3(transform.position.x, curve_step, transform.position.z) + (transform.forward * move_speed * Time.deltaTime));
 

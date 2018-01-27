@@ -5,16 +5,22 @@ using UnityEngine;
 public class FlakkSystem : MonoBehaviour
 {
     [Header("Parameters")]
-    [SerializeField] float min_shot_delay;
-    [SerializeField] float max_shot_delay;
+    [SerializeField] float min_shot_delay = 0.25f;
+    [SerializeField] float max_shot_delay = 1.5f;
 
     [Space]
     [SerializeField] Vector3 aiming_extents;
-    [SerializeField] float shot_damage_radius;
+    [SerializeField] float shot_damage_radius = 15;
 
     [Space]
-    [SerializeField] float engage_height;
-    [SerializeField] float engage_delay;
+    [SerializeField] float engage_height = 30;
+    [SerializeField] float engage_delay = 1;
+
+    [Space]
+    [SerializeField] float min_shake_strength = 0.33f;
+    [SerializeField] float max_shake_strength = 0.5f;
+    [SerializeField] float min_shake_duration = 0.33f;
+    [SerializeField] float max_shake_duration = 0.5f;
 
     [Header("References")]
     [SerializeField] GameObject smoke_particle;
@@ -78,6 +84,11 @@ public class FlakkSystem : MonoBehaviour
         {
             // if bird, damage
         }
+
+        float strength = Random.Range(min_shake_strength, max_shake_strength);
+        float duration = Random.Range(min_shake_duration, max_shake_duration);
+
+        CameraShake.Shake(strength, duration);
     }
 
 
