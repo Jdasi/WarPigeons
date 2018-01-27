@@ -21,6 +21,9 @@ GameObject:
   - component: {fileID: 4459371601250086}
   - component: {fileID: 33326234733400052}
   - component: {fileID: 23719348464182854}
+  - component: {fileID: 65544736034012440}
+  - component: {fileID: 65376259875503300}
+  - component: {fileID: 65056775426921698}
   m_Layer: 0
   m_Name: Arch
   m_TagString: Untagged
@@ -35,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1839612345788134}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 91.79118, y: 2.1269999, z: -29.252645}
+  m_LocalPosition: {x: 9.030252, y: 5.1891603, z: 50.994987}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -80,3 +83,39 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1839612345788134}
   m_Mesh: {fileID: 4300006, guid: ca2392dc0b7f56a4ca11a12365349610, type: 3}
+--- !u!65 &65056775426921698
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1839612345788134}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.979911, y: 2.546311, z: 3.4920375}
+  m_Center: {x: 0, y: -0.00000023841856, z: 7.1551456}
+--- !u!65 &65376259875503300
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1839612345788134}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2912579, y: 2.546311, z: 17.677074}
+  m_Center: {x: 3.344327, y: -0.00000023841858, z: 0.062625885}
+--- !u!65 &65544736034012440
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1839612345788134}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2903886, y: 2.546311, z: 17.677074}
+  m_Center: {x: -3.3447607, y: -0.00000023841858, z: 0.062625885}
