@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1055152666988096}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 19.3, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -57,6 +57,10 @@ MonoBehaviour:
   shot_damage_radius: 5
   engage_height: 30
   engage_delay: 1
+  min_shake_strength: 0.33
+  max_shake_strength: 0.5
+  min_shake_duration: 0.33
+  max_shake_duration: 0.5
   smoke_particle: {fileID: 1853365240081952, guid: 47750a1b712a82740ad4839c894ce8fe,
     type: 2}
   target: {fileID: 0}

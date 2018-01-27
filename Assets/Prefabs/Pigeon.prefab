@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4267238037774692}
   - component: {fileID: 33813644435974418}
-  - component: {fileID: 65902326930845878}
   - component: {fileID: 23253602313191482}
   m_Layer: 0
   m_Name: Cube (1)
@@ -38,7 +37,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4639838364558028}
   - component: {fileID: 33265657623740356}
-  - component: {fileID: 65674067550780156}
   - component: {fileID: 23107324280395342}
   m_Layer: 0
   m_Name: Cube
@@ -174,7 +172,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1928851594010256}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -328,30 +326,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &65674067550780156
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1543991761124730}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65902326930845878
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1496813728797082}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114436215551874120
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -378,7 +352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   high_altitude: 30
   turn_speed: 70
-  move_speed: 40
+  move_speed: 20
   current_mode: 1
   dive_curve:
     serializedVersion: 2
@@ -429,8 +403,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   dive_duration: 1.5
-  high_flight_fov: 80
-  low_flight_fov: 70
+  high_flight_fov: 100
+  low_flight_fov: 75
   rigid_body: {fileID: 54085523768375646}
   pigeon_camera: {fileID: 0}
   body: {fileID: 1928851594010256}
