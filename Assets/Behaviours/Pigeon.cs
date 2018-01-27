@@ -59,6 +59,7 @@ public class Pigeon : MonoBehaviour
 
 	private float health = 100.0f;
 	private float damaged = 0.0f;
+	private float dazed = 0.0f;
 
 	
 	public void Damage(float amount)
@@ -70,7 +71,11 @@ public class Pigeon : MonoBehaviour
 		if (health <= 0.0f)
 			Kill ();
 	}
-	
+
+	public void Daze()
+	{
+		dazed = 2.0f;
+	}
 	
 	public void SetDestination(PigeonDestination _destination)
     {
@@ -139,9 +144,14 @@ public class Pigeon : MonoBehaviour
 			}
 
 			damage_camera.UpdateDamage (health);
+			damage_camera.UpdateDaze (dazed);
 		}
 
         horizontal = Input.GetAxis("Controller 1 - Horizontal");
+		if (dazed > 0.0f) {
+			horizontal *= -1;
+			dazed -= Time.deltaTime;
+		}
 
         if (transitioning)
         {
@@ -163,8 +173,12 @@ public class Pigeon : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            Kill();
+			Damage (10.0f);
         }
+		if (Input.GetKeyDown(KeyCode.L))
+		{
+			Daze ();
+		}
 
         HandleMessageProximity();
     }

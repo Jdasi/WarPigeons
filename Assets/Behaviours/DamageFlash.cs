@@ -8,6 +8,7 @@ public class DamageFlash : MonoBehaviour
     public float flash_speed = 1;
     public float flash_ammount = 0.22f;
 	public float redness = 0.5f;
+	float dazed = 0.0f;
 	bool dead = false;
 
     [SerializeField] PostProcessingProfile camera_effects;
@@ -19,14 +20,23 @@ public class DamageFlash : MonoBehaviour
 	        return;
 
 	    var vinette_settings = camera_effects.vignette.settings;
-        vinette_settings.intensity = Mathf.Abs(Mathf.Sin(Time.realtimeSinceStartup) * flash_ammount);
+		vinette_settings.intensity = flash_ammount * 0.25f + Mathf.Abs(Mathf.Sin(Time.realtimeSinceStartup * flash_speed)) * flash_ammount * 0.75f;
+		if (dazed > 0.0f) {
+			vinette_settings.color = new Color (0.1f, 0.0f, 0.5f);
+		} else {
+			vinette_settings.color = new Color (0.1f, 0.0f, 0.0f);
+		}
 	    camera_effects.vignette.settings = vinette_settings;
 
 		var grading_settings = camera_effects.colorGrading.settings;
 		if (dead) {
-			grading_settings.channelMixer.blue = new Vector3 (0.5f, 0.5f, 0.5f);
-			grading_settings.channelMixer.green = new Vector3 (0.5f, 0.5f, 0.5f);
-			grading_settings.channelMixer.red = new Vector3 (0.5f, 0.5f, 0.5f);
+			Vector3 mid = new Vector3(0.5f, 0.5f, 0.5f);
+			Vector3 newBlue = Vector3.Lerp (grading_settings.channelMixer.blue, mid, Time.deltaTime);
+			Vector3 newGreen = Vector3.Lerp(grading_settings.channelMixer.green, mid, Time.deltaTime);
+			Vector3 newRed = Vector3.Lerp(grading_settings.channelMixer.red, mid, Time.deltaTime);
+			grading_settings.channelMixer.blue = newBlue;
+			grading_settings.channelMixer.green = newGreen;
+			grading_settings.channelMixer.red = newRed;
 			if (flash_ammount >= 0.0f) {
 				flash_ammount -= Time.deltaTime;
 				if (flash_ammount < 0.0f)
@@ -56,9 +66,18 @@ public class DamageFlash : MonoBehaviour
 
 	public void UpdateDamage(float health)
 	{
-		flash_speed = (400.0f - health * 2) / 100.0f;
-		flash_ammount = (100.0f - health) / 225.0f;
+		flash_speed = (150.0f - health) / 50.0f;
+		//flash_ammount = (100.0f - health) / 200.0f;
+		float aaa = ((100.0f - health) / 100.0f);
+		if (aaa > 0.0f)
+			aaa = Mathf.Sqrt(Mathf.Sqrt (aaa));
+		flash_ammount = 0.45f * aaa;
 		redness = (100.0f - health) / 400.0f;
+	}
+
+	public void UpdateDaze(float daze)
+	{
+		dazed = daze;
 	}
 
 	public void Death()
