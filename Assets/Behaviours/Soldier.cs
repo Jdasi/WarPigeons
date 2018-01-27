@@ -167,7 +167,7 @@ public class Soldier : MonoBehaviour {
 
     void Shoot()
     {
-        if (crouched) return;
+        if (crouched || target == null) return;
         if (Vector3.Distance(transform.position, target.position) > stopFollowingRange)
         {
             lockedOn = false;
