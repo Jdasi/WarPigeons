@@ -61,6 +61,11 @@ MonoBehaviour:
   max_shake_strength: 0.7
   min_shake_duration: 0.35
   max_shake_duration: 0.35
+  flakk_clips:
+  - {fileID: 8300000, guid: ec492e942c6ab1e4ebea527fbc45a89b, type: 3}
+  - {fileID: 8300000, guid: 9b48dc7a70d22434c8e4c703e33e6bfd, type: 3}
+  - {fileID: 8300000, guid: 9835e125845f0274db93edc0699fda1f, type: 3}
+  - {fileID: 8300000, guid: fa008bab4a0886045b86eaf2f1ab1ffe, type: 3}
   smoke_particle: {fileID: 1221357091819148, guid: 2c62ceaff26bd9e46abc8eeef054fe84,
     type: 2}
   target: {fileID: 0}

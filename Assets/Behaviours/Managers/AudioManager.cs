@@ -2,12 +2,20 @@
 using System.Collections;
 using System.Collections.Generic;
 
+public enum AmbienceType
+{
+    MENU,
+    ABOVE,
+    BELOW
+}
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioSettings settings { get { return instance.settings_; } }
 
     [SerializeField] AudioSettings settings_;
+    [SerializeField] FadableSource above_source;
+    [SerializeField] FadableSource below_source;
 
     private static AudioManager instance;
 
@@ -16,6 +24,31 @@ public class AudioManager : MonoBehaviour
     private AudioSource sfx_unscaled_source;
 
     private AudioClip last_clip_played;
+
+
+    public static void SetAmbience(AmbienceType _ambience)
+    {
+        switch (_ambience)
+        {
+            case AmbienceType.MENU:
+            {
+                instance.above_source.FadeVolume(0, 1);
+                instance.below_source.FadeVolume(0, 1);
+            } break;
+
+            case AmbienceType.ABOVE:
+            {
+                instance.above_source.FadeVolume(0.75f, 2.0f);
+                instance.below_source.FadeVolume(0.10f, 2.0f);
+            } break;
+
+            case AmbienceType.BELOW:
+            {
+                instance.above_source.FadeVolume(0.10f, 2.0f);
+                instance.below_source.FadeVolume(0.75f, 2.0f);
+            } break;
+        }
+    }
 
 
     public static void PlayOneShot(string _clip_name)

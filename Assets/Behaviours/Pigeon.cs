@@ -76,6 +76,8 @@ public class Pigeon : MonoBehaviour
 
     void Start()
     {
+        AudioManager.SetAmbience(AmbienceType.ABOVE);
+
         last_pos = transform.position;
 
         cam_follow_target = transform.Find("Camera Follow Target");
@@ -148,6 +150,7 @@ public class Pigeon : MonoBehaviour
                 GameManager.scene.pigeon_cam.follow_offset = Vector3.zero;
 
                 target_mode = FlightMode.HIGH;
+                AudioManager.SetAmbience(AmbienceType.ABOVE);
             } break;
 
             case FlightMode.LOW:
@@ -159,6 +162,7 @@ public class Pigeon : MonoBehaviour
                 GameManager.scene.pigeon_cam.follow_offset = new Vector3(0, -10, 0);
 
                 target_mode = FlightMode.LOW;
+                AudioManager.SetAmbience(AmbienceType.BELOW);
             } break;
 
             default: {} break;
