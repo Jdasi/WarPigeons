@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 135735356175212710}
   - component: {fileID: 114178538507849064}
   m_Layer: 0
-  m_Name: MessageCollectible
+  m_Name: MessageCollectable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

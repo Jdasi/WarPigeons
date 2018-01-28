@@ -986,6 +986,10 @@ MonoBehaviour:
   rigid_body: {fileID: 54085523768375646}
   body: {fileID: 1928851594010256}
   letter_obj: {fileID: 1652865542983828}
+  letter_drop_obj: {fileID: 4508420805055570, guid: d973c61730dd1354f909b095fdc79528,
+    type: 2}
+  feather_prefab: {fileID: 1763604019740156, guid: c2183890248557e49829c3a6394d4e05,
+    type: 2}
   cam_follow_target: {fileID: 0}
   cam_lookat_target: {fileID: 0}
 --- !u!114 &114669205239451344
