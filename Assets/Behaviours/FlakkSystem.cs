@@ -11,6 +11,7 @@ public class FlakkSystem : MonoBehaviour
     [Space]
     [SerializeField] Vector3 aiming_extents;
     [SerializeField] float shot_damage_radius = 15;
+    [SerializeField] float shot_damage = 45;
 
     [Space]
     [SerializeField] float engage_height = 30;
@@ -28,8 +29,7 @@ public class FlakkSystem : MonoBehaviour
     [Header("References")]
     [SerializeField] GameObject smoke_particle;
 
-    [Header("Debug")]
-    [SerializeField] GameObject target;
+    private Pigeon target;
 
     private float next_shot_time;
     private float engage_timer;
@@ -38,6 +38,7 @@ public class FlakkSystem : MonoBehaviour
 
     void Start()
     {
+        target = GameManager.scene.pigeon;
         next_shot_time = Time.time;
     }
 
@@ -86,9 +87,10 @@ public class FlakkSystem : MonoBehaviour
         foreach (var hit in hits)
         {
 			if (hit.tag == "Pigeon")
-			{
-			    Vector3 normal = (hit.transform.position - transform.position).normalized;
-				hit.GetComponent<Pigeon> ().Damage (50.0f, hit.ClosestPoint(hit.transform.position), normal);
+            {
+                Vector3 normal = (hit.transform.position - transform.position).normalized;
+
+				hit.GetComponent<Pigeon> ().Damage (shot_damage, hit.ClosestPoint(hit.transform.position), normal);
 				hit.GetComponent<Pigeon> ().Daze ();
 			}
         }
@@ -104,7 +106,7 @@ public class FlakkSystem : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = can_engage ? Color.red : Color.green;
-        Gizmos.DrawWireCube(target == null ? transform.position : target.transform.position, aiming_extents * 2);
+        Gizmos.DrawWireCube(transform.position, aiming_extents * 2);
     }
 
 }
