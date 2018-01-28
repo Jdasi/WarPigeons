@@ -123,9 +123,15 @@ public class Pigeon : MonoBehaviour
 
 		damage_camera.Death ();
 
-        // TODO: Some invoke or something to end the game after a short delay ..
+        StartCoroutine("showEndScreenAfterDelay");
     }
-    
+
+    IEnumerator showEndScreenAfterDelay()
+    {
+        yield return new WaitForSeconds(2.5f);
+        GameManager.scene.ui_manager.displayEndScreen();
+        yield break;
+    }
 
     void Start()
     {
