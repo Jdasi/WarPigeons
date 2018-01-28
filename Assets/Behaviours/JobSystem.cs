@@ -39,10 +39,8 @@ public class JobSystem : MonoBehaviour
 
     public void MessageDelivered()
     {
-        // TODO: record how many letters have been delivered ?
         delivered_jobs++;
         GameManager.scene.ui_manager.updateUIText(delivered_jobs);
-        Debug.Log("Delivered");
 
         current_job = CurrentJob.COLLECTING;
         

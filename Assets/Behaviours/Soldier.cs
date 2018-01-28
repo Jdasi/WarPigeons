@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Soldier : MonoBehaviour {
 
+    [SerializeField] AudioSource source;
+    [SerializeField] List<AudioClip> shot_clips;
     [SerializeField] Transform bulletPrefab;
     [SerializeField] float shoot_spread;
     [SerializeField] float stopFollowingRange;
@@ -173,7 +175,7 @@ public class Soldier : MonoBehaviour {
         {
             lockedOn = false;
             target = null;
-            curShootTimer = 1;
+            curShootTimer = Random.Range(0.8f, 1.5f);
             return;
         }
 
@@ -182,7 +184,7 @@ public class Soldier : MonoBehaviour {
         if (curShootTimer > 0)
             return;
 
-        curShootTimer = 0.4f;
+        curShootTimer = Random.Range(0.3f, 0.7f);
 
         Transform newBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         Vector3 lookAt = calculateLead();
@@ -194,6 +196,10 @@ public class Soldier : MonoBehaviour {
         flash.intensity = Random.Range(6.0f, 12.0f);
         flash.range = Random.Range(5.0f, 10.0f);
         flashInit = false;
+
+        var clip = shot_clips[Random.Range(0, shot_clips.Count)];
+
+        source.PlayOneShot(clip);
     }
 
     void Crouch()

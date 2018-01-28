@@ -196,7 +196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ec1c9136a23154ba69f6e153366293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
+  clips:
+  - {fileID: 8300000, guid: ea63219e3f834f74cbfcba4b9c4e167e, type: 3}
   play_on_awake: 1
   looping: 1
   volume: 1
@@ -212,10 +213,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ec1c9136a23154ba69f6e153366293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 3e6286b5ffa666b4aa6c00ad18d4cdd3, type: 3}
+  clips:
+  - {fileID: 8300000, guid: 13c8ad00632c94c498db900747e98c08, type: 3}
+  - {fileID: 8300000, guid: 97b32c9ff26545049b22b811a6cf3f6d, type: 3}
   play_on_awake: 1
   looping: 1
-  volume: 0.75
+  volume: 1
   pitch: 1
 --- !u!114 &114944859893952292
 MonoBehaviour:

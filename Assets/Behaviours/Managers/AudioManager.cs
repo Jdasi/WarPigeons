@@ -39,12 +39,12 @@ public class AudioManager : MonoBehaviour
             case AmbienceType.ABOVE:
             {
                 instance.above_source.FadeVolume(0.75f, 2.0f);
-                instance.below_source.FadeVolume(0.10f, 2.0f);
+                instance.below_source.FadeVolume(0.10f, 1.0f);
             } break;
 
             case AmbienceType.BELOW:
             {
-                instance.above_source.FadeVolume(0.10f, 2.0f);
+                instance.above_source.FadeVolume(0.10f, 1.0f);
                 instance.below_source.FadeVolume(0.75f, 2.0f);
             } break;
         }
