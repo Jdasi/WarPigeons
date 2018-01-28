@@ -32,8 +32,8 @@ public class AudioManager : MonoBehaviour
         {
             case AmbienceType.MENU:
             {
-                instance.above_source.FadeVolume(0, 1);
-                instance.below_source.FadeVolume(0, 1);
+                instance.above_source.FadeVolume(0.10f, 1);
+                instance.below_source.FadeVolume(0.10f, 1);
             } break;
 
             case AmbienceType.ABOVE:

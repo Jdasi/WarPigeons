@@ -20,7 +20,6 @@ public class VolumeRenderer : MonoBehaviour
 
     void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
         renderer = GetComponent<Renderer>();
 
         texture = new Texture3D(Mathf.NextPowerOfTwo((int) size.x), Mathf.NextPowerOfTwo((int)size.y),
