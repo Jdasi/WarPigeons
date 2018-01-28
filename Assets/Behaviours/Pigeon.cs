@@ -43,6 +43,7 @@ public class Pigeon : MonoBehaviour
     [SerializeField] Rigidbody rigid_body;
     [SerializeField] GameObject body;
     [SerializeField] GameObject letter_obj;
+    [SerializeField] Transform letter_drop_obj;
     [SerializeField] private GameObject feather_prefab;
 
     [HideInInspector] public Transform cam_follow_target;
@@ -96,6 +97,9 @@ public class Pigeon : MonoBehaviour
     public void SetLetterEquipped(bool _equipped)
     {
         letter_obj.SetActive(_equipped);
+
+        if (!_equipped)
+            DropLetter();
     }
 
 
@@ -193,6 +197,11 @@ public class Pigeon : MonoBehaviour
         HandleMessageProximity();
     }
 
+    void DropLetter()
+    {
+        Transform dropScroll = Instantiate(letter_drop_obj, letter_obj.transform.position, letter_obj.transform.rotation);
+        dropScroll.GetComponent<Rigidbody>().AddForce((Vector3.up * (Random.Range(5, 10)) + (transform.right * Random.Range(-10, 10)) + (transform.forward * 20)), ForceMode.Impulse);
+    }
 
     void ToggleFlightMode()
     {
