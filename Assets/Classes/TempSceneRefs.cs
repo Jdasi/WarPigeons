@@ -37,8 +37,19 @@ public struct TempSceneRefs
         }
     }
 
+    public UIManager ui_manager
+    {
+        get
+        {
+            if (ui_manager_ == null)
+                ui_manager_ = GameObject.FindObjectOfType<UIManager>();
+
+            return ui_manager_;
+        }
+    }
+
     private Pigeon pigeon_;
     private PigeonCamera pigeon_cam_;
     private JobSystem job_system_;
-
+    private UIManager ui_manager_;
 }

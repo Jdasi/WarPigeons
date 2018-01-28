@@ -25,7 +25,7 @@ public class TestBullet : MonoBehaviour {
         if (!fired)
             return;
 
-        m_RB.MovePosition(transform.position + (transform.forward * 2f));
+        m_RB.MovePosition(transform.position + (transform.forward * 1.8f));
     }
 
     private void OnTriggerEnter(Collider other)
