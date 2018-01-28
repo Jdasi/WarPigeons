@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class FadableSource : MonoBehaviour
 {
-    [SerializeField] AudioClip clip;
+    [SerializeField] List<AudioClip> clips;
     [SerializeField] bool play_on_awake = true;
     [SerializeField] bool looping = false;
     [Range(0, 1)][SerializeField] float volume = 1;
     [Range(0, 1)][SerializeField] float pitch = 1;
 
-    private AudioSource audio_source;
+    private List<AudioSource> sources = new List<AudioSource>();
 
     private float fade_progress;
     private float fade_duration;
@@ -32,22 +32,30 @@ public class FadableSource : MonoBehaviour
 
     void Awake()
     {
-        audio_source = gameObject.AddComponent<AudioSource>();
-        audio_source.clip = clip;
-        audio_source.playOnAwake = play_on_awake;
-        audio_source.loop = looping;
-
-        if (play_on_awake)
+        for (int i = 0; i < clips.Count; ++i)
         {
-            audio_source.Play();
+            var source = gameObject.AddComponent<AudioSource>();
+            source.clip = clips[i];
+            source.playOnAwake = play_on_awake;
+            source.loop = looping;
+
+            if (play_on_awake)
+            {
+                source.Play();
+            }
+
+            sources.Add(source);
         }
     }
 
     
     void Update()
     {
-        audio_source.volume = volume;
-        audio_source.pitch = pitch;
+        foreach (var source in sources)
+        {
+            source.volume = volume;
+            source.pitch = pitch;
+        }
 
         if (fading)
         {
