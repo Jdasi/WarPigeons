@@ -80,7 +80,6 @@ public class Pigeon : MonoBehaviour
         Transform feather_clone = Instantiate(feather_prefab).transform;
         feather_clone.position = transform.position;
         feather_clone.LookAt(_hit_nrml.normalized);
-        Debug.Log("spawning feathers");
     }
 
 	public void Daze()
@@ -124,9 +123,15 @@ public class Pigeon : MonoBehaviour
 
 		damage_camera.Death ();
 
-        // TODO: Some invoke or something to end the game after a short delay ..
+        StartCoroutine("showEndScreenAfterDelay");
     }
-    
+
+    IEnumerator showEndScreenAfterDelay()
+    {
+        yield return new WaitForSeconds(2.5f);
+        GameManager.scene.ui_manager.displayEndScreen();
+        yield break;
+    }
 
     void Start()
     {
@@ -200,7 +205,8 @@ public class Pigeon : MonoBehaviour
     void DropLetter()
     {
         Transform dropScroll = Instantiate(letter_drop_obj, letter_obj.transform.position, letter_obj.transform.rotation);
-        dropScroll.GetComponent<Rigidbody>().AddForce((Vector3.up * (Random.Range(5, 10)) + (transform.right * Random.Range(-10, 10)) + (transform.forward * 20)), ForceMode.Impulse);
+        dropScroll.GetComponent<Rigidbody>().AddForce(transform.forward * 20, ForceMode.Impulse);
+        dropScroll.GetComponent<Rigidbody>().AddTorque(new Vector3(Random.Range(-30,30), Random.Range(-30, 30), Random.Range(-30, 30)), ForceMode.Impulse);
     }
 
     void ToggleFlightMode()
@@ -322,5 +328,17 @@ public class Pigeon : MonoBehaviour
 	{
 		Damage (100.0f, collision.contacts[0].point, collision.contacts[0].point);
 	}
+
+
+    void OnDisable()
+    {
+        SetVibration(0, 0);
+    }
+
+
+    void OnDestroy()
+    {
+        SetVibration(0, 0);
+    }
 
 }

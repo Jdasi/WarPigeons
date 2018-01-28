@@ -14,4 +14,5 @@ MonoBehaviour:
   music_volume: 0.5
   sfx_volume: 0.5
   music_clips: []
-  sfx_clips: []
+  sfx_clips:
+  - {fileID: 8300000, guid: 07547182481997e45b5c5d6e1179559b, type: 3}

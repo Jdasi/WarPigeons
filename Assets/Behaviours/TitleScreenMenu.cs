@@ -12,8 +12,9 @@ public class TitleScreenMenu : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetButton("Controller 1 - A") && loading == false)
+        if (Input.GetButton("Controller 1 - A") && !loading)
         {
+            AudioManager.PlayOneShot("pigeonTakeoff-002");
             SceneManager.LoadSceneAsync(next_scene_build_index);
             loading = true;
         }
