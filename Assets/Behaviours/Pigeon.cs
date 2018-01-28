@@ -43,6 +43,7 @@ public class Pigeon : MonoBehaviour
     [SerializeField] Rigidbody rigid_body;
     [SerializeField] GameObject body;
     [SerializeField] GameObject letter_obj;
+    [SerializeField] private GameObject feather_prefab;
 
     [HideInInspector] public Transform cam_follow_target;
     [HideInInspector] public Transform cam_lookat_target;
@@ -62,15 +63,24 @@ public class Pigeon : MonoBehaviour
 	private float dazed = 0.0f;
 
 	
-	public void Damage(float amount)
+	public void Damage(float _amount, Vector3 _hit_pos, Vector3 _hit_nrml)
 	{
 		if (health <= 0.0f)
 			return;
-		health -= amount;
+		health -= _amount;
 		damaged = 1.0f;
 		if (health <= 0.0f)
 			Kill ();
+        SpawnFeathers(_hit_pos, _hit_nrml);
 	}
+
+    private void SpawnFeathers(Vector3 _hit_pos, Vector3 _hit_nrml)
+    {
+        Transform feather_clone = Instantiate(feather_prefab).transform;
+        feather_clone.position = transform.position;
+        feather_clone.LookAt(_hit_nrml.normalized);
+        Debug.Log("spawning feathers");
+    }
 
 	public void Daze()
 	{
@@ -173,7 +183,7 @@ public class Pigeon : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-			Damage (10.0f);
+			Damage (10.0f, transform.position, Vector3.up);
         }
 		if (Input.GetKeyDown(KeyCode.L))
 		{
@@ -301,7 +311,7 @@ public class Pigeon : MonoBehaviour
 
 	void OnCollisionEnter(Collision collision)
 	{
-		Damage (100.0f);
+		Damage (100.0f, collision.contacts[0].point, collision.contacts[0].point);
 	}
 
 }

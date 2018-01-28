@@ -85,8 +85,10 @@ public class FlakkSystem : MonoBehaviour
         var hits = Physics.OverlapSphere(shoot_pos, shot_damage_radius);
         foreach (var hit in hits)
         {
-			if (hit.tag == "Pigeon") {
-				hit.GetComponent<Pigeon> ().Damage (50.0f);
+			if (hit.tag == "Pigeon")
+			{
+			    Vector3 normal = (hit.transform.position - transform.position).normalized;
+				hit.GetComponent<Pigeon> ().Damage (50.0f, hit.ClosestPoint(hit.transform.position), normal);
 				hit.GetComponent<Pigeon> ().Daze ();
 			}
         }
