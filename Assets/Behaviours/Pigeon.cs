@@ -329,4 +329,16 @@ public class Pigeon : MonoBehaviour
 		Damage (100.0f, collision.contacts[0].point, collision.contacts[0].point);
 	}
 
+
+    void OnDisable()
+    {
+        SetVibration(0, 0);
+    }
+
+
+    void OnDestroy()
+    {
+        SetVibration(0, 0);
+    }
+
 }
