@@ -145,7 +145,7 @@ public class Pigeon : MonoBehaviour
         cam_follow_target = transform.Find("Camera Follow Target");
         cam_lookat_target = transform.Find("Camera Look Target");
 
-        SetFlightMode(FlightMode.HIGH);
+        SetFlightMode(FlightMode.HIGH, false);
 
         transform.position = new Vector3(transform.position.x, high_altitude, transform.position.z);
     }
@@ -228,7 +228,7 @@ public class Pigeon : MonoBehaviour
     }
 
 
-    void SetFlightMode(FlightMode _mode)
+    void SetFlightMode(FlightMode _mode, bool _sound = true)
     {
         switch (_mode)
         {
@@ -239,6 +239,9 @@ public class Pigeon : MonoBehaviour
                 GameManager.scene.pigeon_cam.SetFollowSpeed(high_flight_camera_speed);
                 GameManager.scene.pigeon_cam.SetFOV(high_flight_fov);
                 GameManager.scene.pigeon_cam.follow_offset = Vector3.zero;
+
+                if (_sound)
+                    AudioManager.PlayOneShot("SwooshUP");
 
                 target_mode = FlightMode.HIGH;
                 AudioManager.SetAmbience(AmbienceType.ABOVE);
@@ -251,6 +254,9 @@ public class Pigeon : MonoBehaviour
                 GameManager.scene.pigeon_cam.SetFollowSpeed(low_flight_camera_speed);
                 GameManager.scene.pigeon_cam.SetFOV(low_flight_fov);
                 GameManager.scene.pigeon_cam.follow_offset = new Vector3(0, -10, 0);
+
+                if (_sound)
+                    AudioManager.PlayOneShot("SwooshDOWN");
 
                 target_mode = FlightMode.LOW;
                 AudioManager.SetAmbience(AmbienceType.BELOW);
