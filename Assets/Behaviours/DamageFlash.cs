@@ -10,6 +10,7 @@ public class DamageFlash : MonoBehaviour
 	public float redness = 0.5f;
 	float dazed = 0.0f;
 	bool dead = false;
+	float timer = 0.0f;
 
     [SerializeField] PostProcessingProfile camera_effects;
 	
@@ -20,7 +21,10 @@ public class DamageFlash : MonoBehaviour
 	        return;
 
 	    var vinette_settings = camera_effects.vignette.settings;
-		vinette_settings.intensity = flash_ammount * 0.25f + Mathf.Abs(Mathf.Sin(Time.realtimeSinceStartup * flash_speed)) * flash_ammount * 0.75f;
+		timer += Time.deltaTime;
+		if (timer >= 10.0f)
+			timer -= 10.0f;
+		vinette_settings.intensity = flash_ammount * 0.25f + Mathf.Abs(Mathf.Sin(timer * flash_speed)) * flash_ammount * 0.75f;
 		if (dazed > 0.0f) {
 			vinette_settings.color = new Color (0.1f, 0.0f, 0.5f);
 		} else {

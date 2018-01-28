@@ -7,6 +7,7 @@ public class Soldier : MonoBehaviour {
     [SerializeField] Transform bulletPrefab;
     [SerializeField] float shoot_spread;
     [SerializeField] float stopFollowingRange;
+    [SerializeField] float soldierRangeRadius;
     Transform target;
     bool lockedOn = false;
 
@@ -28,7 +29,7 @@ public class Soldier : MonoBehaviour {
     private void Start()
     {
         enemySoldiers = new List<Soldier>();
-        foreach(Collider hit in Physics.OverlapSphere(transform.position, 30.0f))
+        foreach(Collider hit in Physics.OverlapSphere(transform.position, soldierRangeRadius))
         {
             Soldier enemy = hit.GetComponentInChildren<Soldier>();
             if(enemy != null)

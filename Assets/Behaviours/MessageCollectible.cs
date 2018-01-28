@@ -11,7 +11,7 @@ public class MessageCollectible : PigeonDestination
             return;
 
         GameManager.scene.pigeon.SetLetterEquipped(true);
-        GameManager.scene.message_spawner.MessageCollected();
+        GameManager.scene.job_system.MessageCollected();
 
         Destroy(this.gameObject);
     }
