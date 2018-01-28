@@ -284,7 +284,14 @@ public class Pigeon : MonoBehaviour
 
     void SetVibration(float _left, float _right)
     {
+        if (!ReInput.isReady)
+            return;
+
         var player = ReInput.players.GetPlayer(0);
+
+        if (player == null)
+            return;
+
         foreach(Joystick j in player.controllers.Joysticks)
         {
             if (!j.supportsVibration)
