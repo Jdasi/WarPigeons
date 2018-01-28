@@ -26,19 +26,19 @@ public struct TempSceneRefs
         }
     }
 
-    public JobSystem message_spawner
+    public JobSystem job_system
     {
         get
         {
-            if (message_spawner_ == null)
-                message_spawner_ = GameObject.FindObjectOfType<JobSystem>();
+            if (job_system_ == null)
+                job_system_ = GameObject.FindObjectOfType<JobSystem>();
 
-            return message_spawner_;
+            return job_system_;
         }
     }
 
     private Pigeon pigeon_;
     private PigeonCamera pigeon_cam_;
-    private JobSystem message_spawner_;
+    private JobSystem job_system_;
 
 }
