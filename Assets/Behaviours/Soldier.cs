@@ -234,4 +234,11 @@ public class Soldier : MonoBehaviour {
         }
     }
 
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = team == 0 ? Color.red : Color.blue;
+        Gizmos.DrawSphere(transform.position, 3);
+    }
+
 }

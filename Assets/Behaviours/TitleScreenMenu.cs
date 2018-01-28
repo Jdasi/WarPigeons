@@ -17,6 +17,8 @@ public class TitleScreenMenu : MonoBehaviour
 
     void Start()
     {
+        AudioManager.SetAmbience(AmbienceType.MENU);
+
         world_fade.FadeOut(enter_scene_fade);
         canvas_fade.FadeOut(enter_scene_fade);
     }
