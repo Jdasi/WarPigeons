@@ -339,6 +339,7 @@ public class Pigeon : MonoBehaviour
 
 	void OnCollisionEnter(Collision collision)
 	{
+        AudioManager.PlayOneShot("bird_collision_" + Random.Range(1, 5).ToString());
 		Damage (100.0f, collision.contacts[0].point, collision.contacts[0].point);
 	}
 

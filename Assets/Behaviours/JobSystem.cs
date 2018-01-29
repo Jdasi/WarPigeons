@@ -26,7 +26,8 @@ public class JobSystem : MonoBehaviour
 
     public void MessageCollected()
     {
-        // TODO: record how many letters have been collected ?
+        AudioManager.PlayOneShot("job_pickup");
+
         current_job = CurrentJob.DELIVERING;
 
         var pos = delivery_points[Random.Range(0, delivery_points.Count)].position;
@@ -39,7 +40,9 @@ public class JobSystem : MonoBehaviour
 
     public void MessageDelivered()
     {
-        delivered_jobs++;
+        AudioManager.PlayOneShot("job_deliver");
+
+        ++delivered_jobs;
         GameManager.scene.ui_manager.updateUIText(delivered_jobs);
 
         current_job = CurrentJob.COLLECTING;
