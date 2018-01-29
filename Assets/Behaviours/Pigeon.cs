@@ -174,7 +174,7 @@ public class Pigeon : MonoBehaviour
 
         if (transitioning)
         {
-            Vector3 euler = new Vector3((last_pos - transform.position).y * 50, 0, 0);
+            Vector3 euler = new Vector3((last_pos - transform.position).y * 70, 0, 0);
             body.transform.localRotation = Quaternion.RotateTowards(body.transform.localRotation, Quaternion.Euler(euler), 300 * Time.deltaTime);
         }
         else

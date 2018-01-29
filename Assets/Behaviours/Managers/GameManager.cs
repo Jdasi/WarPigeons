@@ -44,6 +44,12 @@ public class GameManager : MonoBehaviour
         {
             LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            var fx = GameObject.FindObjectOfType<UnityEngine.PostProcessing.PostProcessingBehaviour>();
+            fx.profile.motionBlur.enabled = !fx.profile.motionBlur.enabled;
+        }
     }
 
 
