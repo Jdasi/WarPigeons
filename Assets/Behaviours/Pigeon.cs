@@ -135,7 +135,9 @@ public class Pigeon : MonoBehaviour
 
     void Start()
     {
-		damage_camera = GetComponent<DamageFlash>();
+        Time.timeScale = 1f;
+
+        damage_camera = GetComponent<DamageFlash>();
 		damage_camera.UpdateDamage (health);
 
         AudioManager.SetAmbience(AmbienceType.ABOVE);

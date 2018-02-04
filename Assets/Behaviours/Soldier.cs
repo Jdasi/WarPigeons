@@ -137,7 +137,7 @@ public class Soldier : MonoBehaviour {
         Vector3 targetPos = target.position;
         float dist = Vector3.Distance(transform.position, target.position);
 
-        targetPos += (target.forward * 0.25f) * dist;
+        targetPos += (target.forward * 0.3f) * dist;
 
         Vector3 variance = new Vector3(
             Random.Range(-shoot_spread, shoot_spread),
@@ -175,7 +175,7 @@ public class Soldier : MonoBehaviour {
         {
             lockedOn = false;
             target = null;
-            curShootTimer = Random.Range(0.7f, 1.2f);
+            curShootTimer = Random.Range(0.7f, 0.8f);
             return;
         }
 
@@ -184,7 +184,7 @@ public class Soldier : MonoBehaviour {
         if (curShootTimer > 0)
             return;
 
-        curShootTimer = Random.Range(0.3f, 0.7f);
+        curShootTimer = Random.Range(0.3f, 0.5f);
 
         Transform newBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         Vector3 lookAt = calculateLead();
