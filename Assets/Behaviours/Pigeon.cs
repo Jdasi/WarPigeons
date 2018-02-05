@@ -285,7 +285,7 @@ public class Pigeon : MonoBehaviour
         }
 
         float vibration_amount = (dist_before_vibrate - dist) * 0.001f;
-        vibration_amount = Mathf.Clamp(vibration_amount, 0, 0.2f);
+        vibration_amount = Mathf.Clamp(vibration_amount, 0, 0.3f);
         SetVibration(vibration_amount, vibration_amount);
     }
 

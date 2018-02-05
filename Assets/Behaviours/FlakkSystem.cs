@@ -35,6 +35,7 @@ public class FlakkSystem : MonoBehaviour
     private float engage_timer;
     private bool can_engage { get { return engage_timer >= engage_delay; } }
 
+    private int shot_count; 
 
     void Start()
     {
@@ -57,6 +58,7 @@ public class FlakkSystem : MonoBehaviour
         if (target.transform.position.y < engage_height)
         {
             engage_timer = 0;
+            shot_count = 0;
             return;
         }
 
@@ -74,7 +76,9 @@ public class FlakkSystem : MonoBehaviour
 
     void Shoot()
     {
-        next_shot_time = Time.time + Random.Range(min_shot_delay, max_shot_delay);
+        ++shot_count;
+
+        next_shot_time = Time.time + Mathf.Clamp(Random.Range(max_shot_delay - (max_shot_delay/10 * shot_count), max_shot_delay), min_shot_delay, max_shot_delay);
 
         float x = Random.Range(-aiming_extents.x, aiming_extents.x);
         float y = Random.Range(-aiming_extents.y, aiming_extents.y);
