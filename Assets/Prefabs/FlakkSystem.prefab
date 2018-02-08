@@ -51,11 +51,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48523f187c9d8524d836e54e3fb45300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  min_shot_delay: 0.2
+  min_shot_delay: 0.6
   max_shot_delay: 2.5
   aiming_extents: {x: 15, y: 5, z: 20}
   shot_damage_radius: 5
-  shot_damage: 45
+  shot_damage: 30
   engage_height: 29
   engage_delay: 2
   min_shake_strength: 0.7

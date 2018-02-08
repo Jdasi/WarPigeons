@@ -285,10 +285,34 @@ public class Pigeon : MonoBehaviour
         }
 
         float vibration_amount = (dist_before_vibrate - dist) * 0.001f;
-        vibration_amount = Mathf.Clamp(vibration_amount, 0, 0.3f);
-        SetVibration(vibration_amount, vibration_amount);
+        vibration_amount = Mathf.Clamp(vibration_amount, 0, 0.4f);
+
+        float vibration_amount_left = vibration_amount;
+        float vibration_amount_right = vibration_amount;
+
+        int messageDirection = ProximityAngleDir(transform.forward, transform.position - destination.transform.position, Vector3.up);
+
+        if(messageDirection == 1)
+            vibration_amount_right /= 2;
+        else if(messageDirection == -1)
+            vibration_amount_left /= 2;
+
+        SetVibration(vibration_amount_left, vibration_amount_right);
     }
 
+    //returns -1 when to the left, 1 to the right, and 0 for forward/backward
+    public int ProximityAngleDir(Vector3 fwd, Vector3 targetDir, Vector3 up)
+    {
+        Vector3 perp = Vector3.Cross(fwd, targetDir);
+        float dir = Vector3.Dot(perp, up);
+
+        if (dir > 10.0f)
+            return 1;
+        else if (dir < -10.0f)
+            return -1;
+
+        return 0;
+    }
 
     void SetVibration(float _left, float _right)
     {

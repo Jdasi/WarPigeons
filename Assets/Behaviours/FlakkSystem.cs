@@ -5,7 +5,7 @@ using UnityEngine;
 public class FlakkSystem : MonoBehaviour
 {
     [Header("Parameters")]
-    [SerializeField] float min_shot_delay = 0.25f;
+    [SerializeField] float min_shot_delay = 0.5f;
     [SerializeField] float max_shot_delay = 1.5f;
 
     [Space]
@@ -78,7 +78,7 @@ public class FlakkSystem : MonoBehaviour
     {
         ++shot_count;
 
-        next_shot_time = Time.time + Mathf.Clamp(Random.Range(max_shot_delay - (max_shot_delay/10 * shot_count), max_shot_delay), min_shot_delay, max_shot_delay);
+        next_shot_time = Time.time + Mathf.Clamp(Random.Range(max_shot_delay - (max_shot_delay/20 * shot_count), max_shot_delay), min_shot_delay, max_shot_delay);
 
         float x = Random.Range(-aiming_extents.x, aiming_extents.x);
         float y = Random.Range(-aiming_extents.y, aiming_extents.y);
