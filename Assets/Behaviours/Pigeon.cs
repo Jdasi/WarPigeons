@@ -126,6 +126,24 @@ public class Pigeon : MonoBehaviour
         StartCoroutine("showEndScreenAfterDelay");
     }
 
+    public void TurnRight()
+    {
+        horizontal = 1;
+    }
+
+
+    public void TurnLeft()
+    {
+        horizontal = -1;
+    }
+
+
+    public void StopTurning()
+    {
+        horizontal = 0;
+    }
+
+
     IEnumerator showEndScreenAfterDelay()
     {
         yield return new WaitForSeconds(2.5f);
@@ -168,12 +186,7 @@ public class Pigeon : MonoBehaviour
 			damage_camera.UpdateDaze (dazed);
 		}
 
-        horizontal = Input.GetAxis("Controller 1 - Horizontal");
-		if (dazed > 0.0f) {
-			horizontal *= -1;
-			dazed -= Time.deltaTime;
-		}
-
+        //horizontal = Input.GetAxis("Controller 1 - Horizontal");
         if (transitioning)
         {
             Vector3 euler = new Vector3((last_pos - transform.position).y * 70, 0, 0);
@@ -204,6 +217,15 @@ public class Pigeon : MonoBehaviour
         HandleMessageProximity();
     }
 
+
+    void LateUpdate()
+    {
+        if (dazed > 0.0f) {
+            horizontal *= -1;
+            dazed -= Time.deltaTime;
+        }
+    }
+
     void DropLetter()
     {
         Transform dropScroll = Instantiate(letter_drop_obj, letter_obj.transform.position, letter_obj.transform.rotation);
@@ -211,7 +233,7 @@ public class Pigeon : MonoBehaviour
         dropScroll.GetComponent<Rigidbody>().AddTorque(new Vector3(Random.Range(-30,30), Random.Range(-30, 30), Random.Range(-30, 30)), ForceMode.Impulse);
     }
 
-    void ToggleFlightMode()
+    public void ToggleFlightMode()
     {
         switch (current_mode)
         {

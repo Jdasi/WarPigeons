@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
         instance = this;
 
         DontDestroyOnLoad(this.gameObject);
-        Cursor.visible = false;
+        //Cursor.visible = false;
         Application.targetFrameRate = 120;
     }
 

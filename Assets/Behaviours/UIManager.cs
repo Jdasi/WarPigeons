@@ -58,9 +58,11 @@ public class UIManager : MonoBehaviour {
     IEnumerator endGame()
     {
         yield return new WaitForSeconds(1);
+
         game_over = true;
         delivered_count_text.GetComponent<FadableGraphic>().FadeIn(deliver_text_time / 3);
-        yield break;
+
+        GameManager.scene.mobile_control.state = MobileControl.ControlState.GAMEOVER;
     }
 
     IEnumerator showDelivered()
@@ -68,9 +70,9 @@ public class UIManager : MonoBehaviour {
         displaying_delivered = true;
 
         delivered_count_text.GetComponent<FadableGraphic>().FadeIn(deliver_text_time / 3);
-        yield return new WaitForSeconds(deliver_text_time);
-        delivered_count_text.GetComponent<FadableGraphic>().FadeOut(deliver_text_time / 3);
 
-        yield break;
+        yield return new WaitForSeconds(deliver_text_time);
+
+        delivered_count_text.GetComponent<FadableGraphic>().FadeOut(deliver_text_time / 3);
     }
 }

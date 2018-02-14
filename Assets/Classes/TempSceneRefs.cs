@@ -48,8 +48,20 @@ public struct TempSceneRefs
         }
     }
 
+    public MobileControl mobile_control
+    {
+        get
+        {
+            if (mobile_control_ == null)
+                mobile_control_ = GameObject.FindObjectOfType<MobileControl>();
+
+            return mobile_control_;
+        }
+    }
+
     private Pigeon pigeon_;
     private PigeonCamera pigeon_cam_;
     private JobSystem job_system_;
     private UIManager ui_manager_;
+    private MobileControl mobile_control_;
 }

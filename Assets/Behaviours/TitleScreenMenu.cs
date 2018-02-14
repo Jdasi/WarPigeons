@@ -17,6 +17,7 @@ public class TitleScreenMenu : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1;
         AudioManager.SetAmbience(AmbienceType.MENU);
 
         world_fade.FadeOut(enter_scene_fade);
@@ -27,7 +28,7 @@ public class TitleScreenMenu : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if (!loading && Input.GetButton("Controller 1 - A"))
+        if (!loading && (Input.GetButton("Controller 1 - A") || Input.GetMouseButtonDown(0)))
         {
             loading = true;
             APressed();
