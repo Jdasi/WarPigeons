@@ -36,12 +36,6 @@ public class ShakeModule : MonoBehaviour
     }
 
 
-    void Start()
-    {
-
-    }
-
-
     void Update()
     {
         if (paused)

@@ -8,8 +8,9 @@ OcclusionCullingSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+  m_SceneGUID: 7c32ed1002616db459ccaf76315f8118
+  m_OcclusionCullingData: {fileID: 36300000, guid: f36db14dc4203eb44b26fe53e329d25f,
+    type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -33,12 +34,12 @@ RenderSettings:
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 512
+  m_DefaultReflectionResolution: 256
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 0.5
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1218483653}
-  m_IndirectSpecularColor: {r: 0.31880948, g: 0.3315117, b: 0.33128503, a: 0.5}
+  m_IndirectSpecularColor: {r: 0.31849194, g: 0.33129457, b: 0.33128846, a: 0.5}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -56,21 +57,21 @@ LightmapSettings:
   m_LightmapEditorSettings:
     serializedVersion: 8
     m_Resolution: 2
-    m_BakeResolution: 4
-    m_TextureWidth: 512
+    m_BakeResolution: 2
+    m_TextureWidth: 256
     m_TextureHeight: 1024
     m_AO: 1
     m_AOMaxDistance: 1
     m_CompAOExponent: 0.8
     m_CompAOExponentDirect: 0
     m_Padding: 2
-    m_LightmapParameters: {fileID: 111300000, guid: bcff588b784282d469b013ba0dd3f29d,
-      type: 2}
+    m_LightmapParameters: {fileID: 15201, guid: 0000000000000000f000000000000000,
+      type: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
     m_FinalGather: 1
     m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 128
+    m_FinalGatherRayCount: 32
     m_ReflectionCompression: 2
     m_MixedBakeMode: 3
     m_BakeBackend: 0
@@ -87,7 +88,7 @@ LightmapSettings:
     m_PVRFilteringAtrousColorSigma: 1
     m_PVRFilteringAtrousNormalSigma: 1
     m_PVRFilteringAtrousPositionSigma: 1
-  m_LightingDataAsset: {fileID: 112001068, guid: fc295362de68472438897a45f265dd9b,
+  m_LightingDataAsset: {fileID: 112001028, guid: fc295362de68472438897a45f265dd9b,
     type: 2}
   m_ShadowMaskMode: 2
 --- !u!196 &4
@@ -336,12 +337,17 @@ Prefab:
     - target: {fileID: 198420813897891914, guid: 2773c53dabc80ac4194921eb35dcafb8,
         type: 2}
       propertyPath: randomSeed
-      value: -713958707
+      value: 178783934
       objectReference: {fileID: 0}
     - target: {fileID: 108443530350119562, guid: 2773c53dabc80ac4194921eb35dcafb8,
         type: 2}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198420813897891914, guid: 2773c53dabc80ac4194921eb35dcafb8,
+        type: 2}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2773c53dabc80ac4194921eb35dcafb8, type: 2}
@@ -1082,7 +1088,17 @@ Prefab:
     - target: {fileID: 108909001698382026, guid: bebf795340302da4eb70777c10014ee1,
         type: 2}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198535224019079536, guid: bebf795340302da4eb70777c10014ee1,
+        type: 2}
+      propertyPath: randomSeed
+      value: 1137816931
+      objectReference: {fileID: 0}
+    - target: {fileID: 198535224019079536, guid: bebf795340302da4eb70777c10014ee1,
+        type: 2}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bebf795340302da4eb70777c10014ee1, type: 2}
@@ -2831,7 +2847,17 @@ Prefab:
     - target: {fileID: 108909001698382026, guid: bebf795340302da4eb70777c10014ee1,
         type: 2}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198535224019079536, guid: bebf795340302da4eb70777c10014ee1,
+        type: 2}
+      propertyPath: randomSeed
+      value: -671136337
+      objectReference: {fileID: 0}
+    - target: {fileID: 198535224019079536, guid: bebf795340302da4eb70777c10014ee1,
+        type: 2}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bebf795340302da4eb70777c10014ee1, type: 2}
@@ -13406,7 +13432,17 @@ Prefab:
     - target: {fileID: 108443530350119562, guid: 2773c53dabc80ac4194921eb35dcafb8,
         type: 2}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198420813897891914, guid: 2773c53dabc80ac4194921eb35dcafb8,
+        type: 2}
+      propertyPath: randomSeed
+      value: -576150974
+      objectReference: {fileID: 0}
+    - target: {fileID: 198420813897891914, guid: 2773c53dabc80ac4194921eb35dcafb8,
+        type: 2}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2773c53dabc80ac4194921eb35dcafb8, type: 2}
@@ -13720,7 +13756,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!23 &550926951
 MeshRenderer:
@@ -17133,12 +17169,17 @@ Prefab:
     - target: {fileID: 198420813897891914, guid: 2773c53dabc80ac4194921eb35dcafb8,
         type: 2}
       propertyPath: randomSeed
-      value: -713958707
+      value: 107604780
       objectReference: {fileID: 0}
     - target: {fileID: 108443530350119562, guid: 2773c53dabc80ac4194921eb35dcafb8,
         type: 2}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198420813897891914, guid: 2773c53dabc80ac4194921eb35dcafb8,
+        type: 2}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2773c53dabc80ac4194921eb35dcafb8, type: 2}
@@ -20491,7 +20532,17 @@ Prefab:
     - target: {fileID: 108443530350119562, guid: 2773c53dabc80ac4194921eb35dcafb8,
         type: 2}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198420813897891914, guid: 2773c53dabc80ac4194921eb35dcafb8,
+        type: 2}
+      propertyPath: randomSeed
+      value: 1593395299
+      objectReference: {fileID: 0}
+    - target: {fileID: 198420813897891914, guid: 2773c53dabc80ac4194921eb35dcafb8,
+        type: 2}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2773c53dabc80ac4194921eb35dcafb8, type: 2}
@@ -21505,7 +21556,17 @@ Prefab:
     - target: {fileID: 108443530350119562, guid: 2773c53dabc80ac4194921eb35dcafb8,
         type: 2}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198420813897891914, guid: 2773c53dabc80ac4194921eb35dcafb8,
+        type: 2}
+      propertyPath: randomSeed
+      value: -1726846471
+      objectReference: {fileID: 0}
+    - target: {fileID: 198420813897891914, guid: 2773c53dabc80ac4194921eb35dcafb8,
+        type: 2}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2773c53dabc80ac4194921eb35dcafb8, type: 2}
@@ -33899,12 +33960,17 @@ Prefab:
     - target: {fileID: 198420813897891914, guid: 2773c53dabc80ac4194921eb35dcafb8,
         type: 2}
       propertyPath: randomSeed
-      value: 934403322
+      value: -175778832
       objectReference: {fileID: 0}
     - target: {fileID: 108443530350119562, guid: 2773c53dabc80ac4194921eb35dcafb8,
         type: 2}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198420813897891914, guid: 2773c53dabc80ac4194921eb35dcafb8,
+        type: 2}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2773c53dabc80ac4194921eb35dcafb8, type: 2}
@@ -34379,7 +34445,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100020, guid: 6872b3bae60babc43a477c11c9fcc9a9, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 100008, guid: 6872b3bae60babc43a477c11c9fcc9a9, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -34825,12 +34891,17 @@ Prefab:
     - target: {fileID: 198420813897891914, guid: 2773c53dabc80ac4194921eb35dcafb8,
         type: 2}
       propertyPath: randomSeed
-      value: 934403322
+      value: -1033756842
       objectReference: {fileID: 0}
     - target: {fileID: 108443530350119562, guid: 2773c53dabc80ac4194921eb35dcafb8,
         type: 2}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198420813897891914, guid: 2773c53dabc80ac4194921eb35dcafb8,
+        type: 2}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2773c53dabc80ac4194921eb35dcafb8, type: 2}
@@ -39344,7 +39415,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!23 &1745325431
 MeshRenderer:
@@ -40458,7 +40529,17 @@ Prefab:
     - target: {fileID: 108443530350119562, guid: 2773c53dabc80ac4194921eb35dcafb8,
         type: 2}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198420813897891914, guid: 2773c53dabc80ac4194921eb35dcafb8,
+        type: 2}
+      propertyPath: randomSeed
+      value: 667934960
+      objectReference: {fileID: 0}
+    - target: {fileID: 198420813897891914, guid: 2773c53dabc80ac4194921eb35dcafb8,
+        type: 2}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2773c53dabc80ac4194921eb35dcafb8, type: 2}
@@ -41566,7 +41647,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!23 &1838137996
 MeshRenderer:
@@ -41981,7 +42062,17 @@ Prefab:
     - target: {fileID: 108443530350119562, guid: 2773c53dabc80ac4194921eb35dcafb8,
         type: 2}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198420813897891914, guid: 2773c53dabc80ac4194921eb35dcafb8,
+        type: 2}
+      propertyPath: randomSeed
+      value: 240725670
+      objectReference: {fileID: 0}
+    - target: {fileID: 198420813897891914, guid: 2773c53dabc80ac4194921eb35dcafb8,
+        type: 2}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2773c53dabc80ac4194921eb35dcafb8, type: 2}
@@ -46640,7 +46731,12 @@ Prefab:
     - target: {fileID: 108443530350119562, guid: 2773c53dabc80ac4194921eb35dcafb8,
         type: 2}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198420813897891914, guid: 2773c53dabc80ac4194921eb35dcafb8,
+        type: 2}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2773c53dabc80ac4194921eb35dcafb8, type: 2}
